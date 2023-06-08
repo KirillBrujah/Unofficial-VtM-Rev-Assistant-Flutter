@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:vtm_assistant/ui/theme/theme.dart';
 import 'package:vtm_assistant/utils/app_router.dart';
+
+import 'generated/l10n.dart';
 
 class App extends StatelessWidget {
   App({Key? key}) : super(key: key);
@@ -15,13 +18,12 @@ class App extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
+        S.delegate,
       ],
       supportedLocales: const [
         Locale('en'),
       ],
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: kDarkTheme,
       routerConfig: _appRouter.config(),
     );
   }
