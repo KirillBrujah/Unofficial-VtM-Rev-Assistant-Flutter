@@ -1,0 +1,1 @@
+export 'game_characters_page.dart';
