@@ -26,4 +26,11 @@ class GameCharacters extends _$GameCharacters {
 
     return database.getAllCharacters();
   }
+
+  Future<void> createCharacter(GameCharacter character) async {
+    state = await AsyncValue.guard(() async {
+      final newCharacter = await database.createCharacter(character);
+      return database.getAllCharacters();
+    });
+  }
 }

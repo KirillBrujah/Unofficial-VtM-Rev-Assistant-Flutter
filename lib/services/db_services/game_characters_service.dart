@@ -6,8 +6,19 @@ const _gameCharactersView = 'game_characters_view';
 
 extension GameCharactersDatabaseExtension on Database {
   Future<List<GameCharacter>> getAllCharacters() async {
-    List<Map<String, dynamic>> list = await query(_gameCharactersView);
+    List<Map<String, dynamic>> queries = await query(_gameCharactersView);
 
-    return list.map((dict) => GameCharacter.fromQuery(dict)).toList();
+    return queries.map((dict) => GameCharacter.fromQuery(dict)).toList();
+  }
+
+  Future<GameCharacter> createCharacter(GameCharacter character) async {
+    final id = await insert(_gameCharacters, {
+      "name": character.name,
+      "generation": character.generation,
+      "description": character.description,
+      "clan_id": character.clan.id,
+    });
+
+    return character.copyWith(id: id);
   }
 }

@@ -7,7 +7,7 @@ part 'game_characters_models.freezed.dart';
 @freezed
 class GameCharacter with _$GameCharacter {
   const factory GameCharacter({
-    required int id,
+    int? id,
     required String name,
     required int generation,
     String? description,
