@@ -16,6 +16,7 @@ class GameCharactersPage extends StatelessWidget {
         title: Text(S.of(context).characters),
       ),
       body: const _GameCharactersList(),
+      floatingActionButton: _AddCharacter(),
     );
   }
 }
@@ -27,16 +28,21 @@ class _GameCharactersList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final gameCharactersController =
+        ref.watch(gameCharactersControllerProvider);
+
     final gameCharacters = ref.watch(gameCharactersProvider);
 
-    return gameCharacters.when(
-      data: (gameCharacters) => gameCharacters.isNotEmpty ? SingleChildScrollView(
-        child: Column(
-          children: gameCharacters
-              .map((gameCharacter) => _GameCharacterCard(gameCharacter))
-              .toList(),
-        ),
-      ) : const _Empty(),
+    return gameCharactersController.when(
+      data: (_) => gameCharacters.isNotEmpty
+          ? SingleChildScrollView(
+              child: Column(
+                children: gameCharacters
+                    .map((gameCharacter) => _GameCharacterCard(gameCharacter))
+                    .toList(),
+              ),
+            )
+          : const _Empty(),
       // TODO: Replace to kErrorWidget
       error: (error, stackTrace) => Center(child: Text(error.toString())),
       // TODO: Replace to kLoadingWidget
@@ -46,23 +52,22 @@ class _GameCharactersList extends ConsumerWidget {
 }
 
 class _GameCharacterCard extends StatelessWidget {
-  const _GameCharacterCard(
-    this.gameCharacter, {
-    super.key,
-  });
+  const _GameCharacterCard(this.gameCharacter);
 
   final GameCharacter gameCharacter;
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Column(children: [
-        Text('ID = ${gameCharacter.id}'),
-        const SizedBox(height: 5),
-        Text(gameCharacter.name),
-        const SizedBox(height: 5),
-        Text(gameCharacter.clan.name),
-      ],),
+      child: Column(
+        children: [
+          Text('ID = ${gameCharacter.id}'),
+          const SizedBox(height: 5),
+          Text(gameCharacter.name),
+          const SizedBox(height: 5),
+          Text(gameCharacter.clan.name),
+        ],
+      ),
     );
   }
 }
@@ -77,3 +82,26 @@ class _Empty extends StatelessWidget {
   }
 }
 
+class _AddCharacter extends ConsumerWidget {
+  const _AddCharacter({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return FloatingActionButton(
+      onPressed: () {
+        ref
+            .read(gameCharactersControllerProvider.notifier)
+            .addCharacter(GameCharacter(
+              name: "TEst",
+              generation: 12,
+              clan: Clan(id: 2, name: "asd"),
+            ));
+        // TODO: Call create character from Provider
+        // ref.read(c)
+      },
+      child: const Icon(Icons.add),
+    );
+  }
+}

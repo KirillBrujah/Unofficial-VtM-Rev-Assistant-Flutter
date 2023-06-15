@@ -15,12 +15,18 @@ Future<Database> database(DatabaseRef ref) async {
   final databasesPath = await getDatabasesPath();
   final path = '$databasesPath/$_databaseName';
 
-  ByteData data = await rootBundle.load(Assets.db.vtmAssistant);
+  final exists = await databaseExists(path);
 
-  List<int> bytes =
-      data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+  if (!exists) {
+    ByteData data = await rootBundle.load(Assets.db.vtmAssistant);
 
-  await File(path).writeAsBytes(bytes, flush: true);
+    List<int> bytes =
+    data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+
+    await File(path).writeAsBytes(bytes, flush: true);
+  }
+
+
 
   final db = await openDatabase(path);
 
