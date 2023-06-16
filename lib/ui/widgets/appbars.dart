@@ -2,26 +2,42 @@ import 'package:flutter/material.dart';
 
 const _appBarHeight = 60.0;
 
-class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppbar({
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const CustomAppBar({
     Key? key,
     required this.title,
   }) : super(key: key);
 
   final String title;
 
-
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+
     return Container(
+      height: _appBarHeight + MediaQuery.of(context).padding.top,
       decoration: BoxDecoration(
-        color: colorScheme.primary,
+        color: colorScheme.secondary,
       ),
-      child: Row(
-        children: [
-          Expanded(child: Text(title)),
-        ],
+      child: SafeArea(
+        bottom: false,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: textTheme.titleLarge!.copyWith(
+                    color: colorScheme.primary,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

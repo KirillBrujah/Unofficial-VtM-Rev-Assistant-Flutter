@@ -4,6 +4,7 @@ import 'package:vtm_assistant/generated/l10n.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:vtm_assistant/models/models.dart';
 import 'package:vtm_assistant/providers/providers.dart';
+import 'package:vtm_assistant/ui/widgets/widgets.dart';
 
 @RoutePage()
 class GameCharactersPage extends StatelessWidget {
@@ -12,17 +13,15 @@ class GameCharactersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).characters),
-      ),
-      body: const _GameCharactersList(),
+      appBar: CustomAppBar(title: S.of(context).characters),
+      body: const _GameCharactersBody(),
       floatingActionButton: _AddCharacter(),
     );
   }
 }
 
-class _GameCharactersList extends ConsumerWidget {
-  const _GameCharactersList({
+class _GameCharactersBody extends ConsumerWidget {
+  const _GameCharactersBody({
     Key? key,
   }) : super(key: key);
 
@@ -35,13 +34,7 @@ class _GameCharactersList extends ConsumerWidget {
 
     return gameCharactersController.when(
       data: (_) => gameCharacters.isNotEmpty
-          ? SingleChildScrollView(
-              child: Column(
-                children: gameCharacters
-                    .map((gameCharacter) => _GameCharacterCard(gameCharacter))
-                    .toList(),
-              ),
-            )
+          ? _GameCharactersList(data: gameCharacters)
           : const _Empty(),
       // TODO: Replace to kErrorWidget
       error: (error, stackTrace) => Center(child: Text(error.toString())),
@@ -51,22 +44,23 @@ class _GameCharactersList extends ConsumerWidget {
   }
 }
 
-class _GameCharacterCard extends StatelessWidget {
-  const _GameCharacterCard(this.gameCharacter);
+class _GameCharactersList extends StatelessWidget {
+  const _GameCharactersList({Key? key, required this.data}) : super(key: key);
 
-  final GameCharacter gameCharacter;
+  final List<GameCharacter> data;
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return ListView.separated(
+      padding: const EdgeInsets.all(15),
+      itemBuilder: (context, index) => GameCharacterCard(data[index]),
+      separatorBuilder: (context, index) => const SizedBox(height: 10),
+      itemCount: data.length,
+    );
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(15),
       child: Column(
-        children: [
-          Text('ID = ${gameCharacter.id}'),
-          const SizedBox(height: 5),
-          Text(gameCharacter.name),
-          const SizedBox(height: 5),
-          Text(gameCharacter.clan.name),
-        ],
+        children: data.map((item) => GameCharacterCard(item)).toList(),
       ),
     );
   }
