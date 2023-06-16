@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:vtm_assistant/ui/widgets/appbar_widgets/appbar_actions.dart';
 
 const _appBarHeight = 60.0;
 
@@ -26,11 +28,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         bottom: false,
         child: Row(
           children: [
-            if (action != null)
-              const SizedBox(
-                width: 35,
-                height: 20,
-              ),
+            SizedBox(
+              width: 35 + 20,
+              // height: 20,
+              child: context.router.canPop() ? AppBarBackAction(onTap: context.router.pop) : null,
+            ),
+
             Expanded(
               child: Padding(
                 padding:
@@ -38,15 +41,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 child: Text(
                   title,
                   textAlign: TextAlign.center,
-                  style: textTheme.titleLarge!.copyWith(
+                  style: textTheme.headlineMedium!.copyWith(
                     color: colorScheme.primary,
                   ),
                 ),
               ),
             ),
-            if (action != null)
+
               SizedBox(
-                width: 35+20,
+                width: 35 + 20,
                 // height: 20,
                 child: action,
               ),

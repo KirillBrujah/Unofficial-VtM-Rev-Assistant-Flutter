@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:vtm_assistant/models/models.dart';
 import 'package:vtm_assistant/providers/providers.dart';
 import 'package:vtm_assistant/ui/widgets/widgets.dart';
+import 'package:vtm_assistant/utils/app_router.dart';
 
 @RoutePage()
 class GameCharactersPage extends StatelessWidget {
@@ -15,26 +16,10 @@ class GameCharactersPage extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(
         title: S.of(context).characters,
-        action: Material(
-          color: Colors.transparent,
-          child: InkWell(
-            onTap: () {},
-            borderRadius: BorderRadius.circular(20),
-            splashColor: Theme.of(context).colorScheme.primary.withOpacity(.2),
-            hoverColor: Theme.of(context).colorScheme.primary.withOpacity(.2),
-            highlightColor: Theme.of(context).colorScheme.primary.withOpacity(.2),
-            focusColor: Theme.of(context).colorScheme.primary.withOpacity(.2),
-
-            child: Container(
-              height: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Icon(
-                size: 35,
-                Icons.add,
-                color: Colors.red,
-              ),
-            ),
-          ),
+        action: AppBarAddAction(
+          onTap: () {
+            context.router.push(const CreateCharacterRoute());
+          },
         ),
       ),
       body: const _GameCharactersBody(),
