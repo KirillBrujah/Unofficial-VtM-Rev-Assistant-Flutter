@@ -13,7 +13,30 @@ class GameCharactersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: S.of(context).characters),
+      appBar: CustomAppBar(
+        title: S.of(context).characters,
+        action: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: () {},
+            borderRadius: BorderRadius.circular(20),
+            splashColor: Theme.of(context).colorScheme.primary.withOpacity(.2),
+            hoverColor: Theme.of(context).colorScheme.primary.withOpacity(.2),
+            highlightColor: Theme.of(context).colorScheme.primary.withOpacity(.2),
+            focusColor: Theme.of(context).colorScheme.primary.withOpacity(.2),
+
+            child: Container(
+              height: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Icon(
+                size: 35,
+                Icons.add,
+                color: Colors.red,
+              ),
+            ),
+          ),
+        ),
+      ),
       body: const _GameCharactersBody(),
       floatingActionButton: _AddCharacter(),
     );

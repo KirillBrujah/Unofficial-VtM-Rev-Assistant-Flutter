@@ -50,11 +50,31 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `VtM rev. Assistant`
+  String get title_placeholder {
+    return Intl.message(
+      'VtM rev. Assistant',
+      name: 'title_placeholder',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Characters`
   String get characters {
     return Intl.message(
       'Characters',
       name: 'characters',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create character`
+  String get create_character {
+    return Intl.message(
+      'Create character',
+      name: 'create_character',
       desc: '',
       args: [],
     );

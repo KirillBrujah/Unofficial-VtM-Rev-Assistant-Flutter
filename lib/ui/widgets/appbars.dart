@@ -6,8 +6,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     Key? key,
     required this.title,
+    this.action,
   }) : super(key: key);
 
+  final Widget? action;
   final String title;
 
   @override
@@ -22,11 +24,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       child: SafeArea(
         bottom: false,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Row(
-            children: [
-              Expanded(
+        child: Row(
+          children: [
+            if (action != null)
+              const SizedBox(
+                width: 35,
+                height: 20,
+              ),
+            Expanded(
+              child: Padding(
+                padding:
+                    EdgeInsets.symmetric(horizontal: action == null ? 15 : 0),
                 child: Text(
                   title,
                   textAlign: TextAlign.center,
@@ -35,8 +43,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+            if (action != null)
+              SizedBox(
+                width: 35+20,
+                // height: 20,
+                child: action,
+              ),
+          ],
         ),
       ),
     );
