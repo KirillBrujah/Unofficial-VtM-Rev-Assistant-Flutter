@@ -15,6 +15,8 @@ Future<Database> database(DatabaseRef ref) async {
   final databasesPath = await getDatabasesPath();
   final path = '$databasesPath/$_databaseName';
 
+  await deleteDatabase(path);
+
   final exists = await databaseExists(path);
 
   if (!exists) {

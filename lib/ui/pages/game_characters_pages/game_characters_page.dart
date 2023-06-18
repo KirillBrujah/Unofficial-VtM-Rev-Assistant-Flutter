@@ -84,13 +84,20 @@ class _Empty extends StatelessWidget {
   }
 }
 
-class _AddCharacter extends ConsumerWidget {
+class _AddCharacter extends ConsumerStatefulWidget {
   const _AddCharacter({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState createState() => __AddCharacterState();
+}
+
+class __AddCharacterState extends ConsumerState<_AddCharacter> {
+  int _clanId = 1;
+
+  @override
+  Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: () {
         ref
@@ -98,8 +105,12 @@ class _AddCharacter extends ConsumerWidget {
             .addCharacter(GameCharacter(
               name: "TEst",
               generation: 12,
-              clan: Clan(id: 2, name: "asd"),
+              clan: Clan(id: _clanId, name: "asd"),
             ));
+        setState(() {
+          _clanId++;
+        });
+
         // TODO: Call create character from Provider
         // ref.read(c)
       },

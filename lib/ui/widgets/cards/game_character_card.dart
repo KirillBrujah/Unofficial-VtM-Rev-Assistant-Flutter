@@ -60,6 +60,7 @@ class GameCharacterCard extends StatelessWidget {
                   Text(
                     gameCharacter.name,
                     textAlign: TextAlign.start,
+                    maxLines: 1,
                     style: textTheme.titleLarge!.copyWith(
                       color: colorScheme.primary,
                     ),
@@ -67,6 +68,7 @@ class GameCharacterCard extends StatelessWidget {
                   Text(
                     '${gameCharacter.clan.name}: ${gameCharacter.generation.roman}',
                     textAlign: TextAlign.start,
+                    maxLines: 1,
                     style: textTheme.bodyMedium!
                         .copyWith(color: colorScheme.onSurface),
                   ),
@@ -74,6 +76,7 @@ class GameCharacterCard extends StatelessWidget {
                   Text(
                     '16.04.2023',
                     textAlign: TextAlign.end,
+                    maxLines: 1,
                     style: textTheme.bodySmall?.copyWith(
                       color: colorScheme.onSurface.withOpacity(.5),
                     ),
@@ -92,7 +95,7 @@ class _CharacterImage extends StatelessWidget {
   const _CharacterImage(this.gameCharacter, {Key? key}) : super(key: key);
 
   final GameCharacter gameCharacter;
-  
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -109,4 +112,3 @@ class _CharacterImage extends StatelessWidget {
     );
   }
 }
-

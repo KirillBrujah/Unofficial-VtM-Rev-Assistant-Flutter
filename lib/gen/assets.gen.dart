@@ -28,16 +28,74 @@ class $AssetsImagesGen {
 class $AssetsImagesClanLogosGen {
   const $AssetsImagesClanLogosGen();
 
+  /// File path: assets/images/clan_logos/assamite.webp
+  AssetGenImage get assamite =>
+      const AssetGenImage('assets/images/clan_logos/assamite.webp');
+
   /// File path: assets/images/clan_logos/brujah.webp
   AssetGenImage get brujah =>
       const AssetGenImage('assets/images/clan_logos/brujah.webp');
+
+  /// File path: assets/images/clan_logos/followers_of_set.webp
+  AssetGenImage get followersOfSet =>
+      const AssetGenImage('assets/images/clan_logos/followers_of_set.webp');
 
   /// File path: assets/images/clan_logos/gangrel.webp
   AssetGenImage get gangrel =>
       const AssetGenImage('assets/images/clan_logos/gangrel.webp');
 
+  /// File path: assets/images/clan_logos/giovanni.webp
+  AssetGenImage get giovanni =>
+      const AssetGenImage('assets/images/clan_logos/giovanni.webp');
+
+  /// File path: assets/images/clan_logos/lasombra.webp
+  AssetGenImage get lasombra =>
+      const AssetGenImage('assets/images/clan_logos/lasombra.webp');
+
+  /// File path: assets/images/clan_logos/malkavian.webp
+  AssetGenImage get malkavian =>
+      const AssetGenImage('assets/images/clan_logos/malkavian.webp');
+
+  /// File path: assets/images/clan_logos/nosferatu.png
+  AssetGenImage get nosferatu =>
+      const AssetGenImage('assets/images/clan_logos/nosferatu.png');
+
+  /// File path: assets/images/clan_logos/ravnos.webp
+  AssetGenImage get ravnos =>
+      const AssetGenImage('assets/images/clan_logos/ravnos.webp');
+
+  /// File path: assets/images/clan_logos/toreador.webp
+  AssetGenImage get toreador =>
+      const AssetGenImage('assets/images/clan_logos/toreador.webp');
+
+  /// File path: assets/images/clan_logos/tremere.png
+  AssetGenImage get tremere =>
+      const AssetGenImage('assets/images/clan_logos/tremere.png');
+
+  /// File path: assets/images/clan_logos/tzimisce.webp
+  AssetGenImage get tzimisce =>
+      const AssetGenImage('assets/images/clan_logos/tzimisce.webp');
+
+  /// File path: assets/images/clan_logos/ventrue.webp
+  AssetGenImage get ventrue =>
+      const AssetGenImage('assets/images/clan_logos/ventrue.webp');
+
   /// List of all assets
-  List<AssetGenImage> get values => [brujah, gangrel];
+  List<AssetGenImage> get values => [
+        assamite,
+        brujah,
+        followersOfSet,
+        gangrel,
+        giovanni,
+        lasombra,
+        malkavian,
+        nosferatu,
+        ravnos,
+        toreador,
+        tremere,
+        tzimisce,
+        ventrue
+      ];
 }
 
 class Assets {

@@ -49,8 +49,19 @@ class Clan with _$Clan {
     final logoAssets = Assets.images.clanLogos;
 
     final logos = {
+      1:	logoAssets.assamite,
       2: logoAssets.brujah,
+      3: logoAssets.followersOfSet,
       4: logoAssets.gangrel,
+      5	: logoAssets.giovanni,
+      6	: logoAssets.lasombra,
+      7	: logoAssets.malkavian,
+      8	: logoAssets.nosferatu,
+      9	: logoAssets.ravnos,
+      10: logoAssets.toreador,
+      11: logoAssets.tremere,
+      12: logoAssets.tzimisce,
+      13: logoAssets.ventrue,
     };
 
     return logos[id];
