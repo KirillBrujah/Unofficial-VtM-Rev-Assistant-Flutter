@@ -22,7 +22,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Container(
       height: _appBarHeight + MediaQuery.of(context).padding.top,
       decoration: BoxDecoration(
-        color: colorScheme.secondary,
+        color: colorScheme.primaryContainer,
       ),
       child: SafeArea(
         bottom: false,
@@ -42,7 +42,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   title,
                   textAlign: TextAlign.center,
                   style: textTheme.headlineMedium!.copyWith(
-                    color: colorScheme.primary,
+                    color: colorScheme.onPrimary,
                   ),
                 ),
               ),

@@ -9,20 +9,23 @@ import 'package:flutter/material.dart';
 // background   #090B08 9, 11, 8
 // surface      #
 
-const _primary = Color.fromRGBO(123, 11, 10, 1);
+
+const _primary = Color.fromRGBO(207, 28, 8, 1);
+const _primaryContainer = Color.fromRGBO(123, 11, 10, 1);
 const _onPrimary = _secondary; // #F7E1DF
 const _secondary = Color.fromRGBO(218, 195, 164, 1);
-const _onSecondary = _background;
+const _onSecondary = _primary;
 const _error = Color.fromRGBO(207, 28, 8, 1);
 const _onError = Color.fromRGBO(247, 225, 223, 1);
 const _background = Color.fromRGBO(9, 11, 8, 1);
 const _onBackground = _secondary;
-const _surface = Color.fromRGBO(112, 85, 58, .4);
+const _surface = Color.fromRGBO(112, 85, 58, .2);
 const _onSurface = _secondary;
 
 const boneColorScheme = ColorScheme(
   brightness: Brightness.dark,
   primary: _primary,
+  primaryContainer: _primaryContainer,
   onPrimary: _onPrimary,
   secondary: _secondary,
   onSecondary: _onSecondary,

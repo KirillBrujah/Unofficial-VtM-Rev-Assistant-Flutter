@@ -19,10 +19,32 @@ class $AssetsDbGen {
   List<String> get values => [vtmAssistant];
 }
 
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  $AssetsImagesClanLogosGen get clanLogos => const $AssetsImagesClanLogosGen();
+}
+
+class $AssetsImagesClanLogosGen {
+  const $AssetsImagesClanLogosGen();
+
+  /// File path: assets/images/clan_logos/brujah.webp
+  AssetGenImage get brujah =>
+      const AssetGenImage('assets/images/clan_logos/brujah.webp');
+
+  /// File path: assets/images/clan_logos/gangrel.webp
+  AssetGenImage get gangrel =>
+      const AssetGenImage('assets/images/clan_logos/gangrel.webp');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [brujah, gangrel];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsDbGen db = $AssetsDbGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
 class AssetGenImage {

@@ -73,7 +73,7 @@ class _ActionIcon extends StatelessWidget {
     return Icon(
       size: ActionConstants.size,
       icon,
-      color: Theme.of(context).colorScheme.primary,
+      color: Theme.of(context).colorScheme.onPrimaryContainer,
     );
   }
 }

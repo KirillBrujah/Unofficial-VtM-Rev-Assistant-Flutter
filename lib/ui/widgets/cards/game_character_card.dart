@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:vtm_assistant/gen/assets.gen.dart';
 import 'package:vtm_assistant/models/models.dart';
+import 'package:vtm_assistant/ui/theme/constants.dart';
 
 extension _EGeneration on int {
   String get roman {
@@ -38,24 +40,18 @@ class GameCharacterCard extends StatelessWidget {
     final colorScheme = theme.colorScheme;
     return Container(
       width: double.infinity,
-      height: 90,
+      height: CardConstants.height,
       decoration: BoxDecoration(
         color: colorScheme.surface,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(CardConstants.borderRadius),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Container(
-            color: colorScheme.background,
-            height: 90,
-            width: 90,
-            // TODO: Replace with image
-            child: const Placeholder(),
-          ),
+          _CharacterImage(gameCharacter),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+              padding: CardConstants.contentPadding,
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -63,23 +59,24 @@ class GameCharacterCard extends StatelessWidget {
                 children: [
                   Text(
                     gameCharacter.name,
-                    textAlign: TextAlign.center,
+                    textAlign: TextAlign.start,
                     style: textTheme.titleLarge!.copyWith(
-                      color: colorScheme.error,
+                      color: colorScheme.primary,
                     ),
                   ),
-                  // const SizedBox(height: 5),
                   Text(
                     '${gameCharacter.clan.name}: ${gameCharacter.generation.roman}',
-                    style: textTheme
-                        .labelMedium /*.copyWith(color: colorScheme.secondary)*/,
+                    textAlign: TextAlign.start,
+                    style: textTheme.bodyMedium!
+                        .copyWith(color: colorScheme.onSurface),
                   ),
-                  // const SizedBox(height: 5),
                   // TODO: Change character date
                   Text(
                     '16.04.2023',
                     textAlign: TextAlign.end,
-                    style: textTheme.bodySmall,
+                    style: textTheme.bodySmall?.copyWith(
+                      color: colorScheme.onSurface.withOpacity(.5),
+                    ),
                   ),
                 ],
               ),
@@ -90,3 +87,26 @@ class GameCharacterCard extends StatelessWidget {
     );
   }
 }
+
+class _CharacterImage extends StatelessWidget {
+  const _CharacterImage(this.gameCharacter, {Key? key}) : super(key: key);
+
+  final GameCharacter gameCharacter;
+  
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    return Container(
+      decoration: BoxDecoration(
+        color: colorScheme.secondary,
+        borderRadius: const BorderRadius.horizontal(
+            left: Radius.circular(CardConstants.borderRadius)),
+      ),
+      padding: CardConstants.imagePadding,
+      height: CardConstants.height,
+      width: CardConstants.height,
+      child: gameCharacter.clan.logo?.image(),
+    );
+  }
+}
+

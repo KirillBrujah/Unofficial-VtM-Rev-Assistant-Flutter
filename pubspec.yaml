@@ -44,6 +44,7 @@ flutter:
 
   assets:
     - assets/db/
+    - assets/images/clan_logos/
 
   # assets:
   #   - images/a_dot_burr.jpeg

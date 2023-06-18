@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:vtm_assistant/gen/assets.gen.dart';
 
 part 'game_characters_models.g.dart';
 
@@ -6,6 +9,8 @@ part 'game_characters_models.freezed.dart';
 
 @freezed
 class GameCharacter with _$GameCharacter {
+  const GameCharacter._();
+
   const factory GameCharacter({
     int? id,
     required String name,
@@ -31,10 +36,23 @@ class GameCharacter with _$GameCharacter {
 
 @freezed
 class Clan with _$Clan {
+  const Clan._();
+
   const factory Clan({
     @JsonKey(name: "clan_id") required int id,
     @JsonKey(name: "clan_name") required String name,
   }) = _Clan;
 
   factory Clan.fromJson(Map<String, dynamic> json) => _$ClanFromJson(json);
+
+  AssetGenImage? get logo {
+    final logoAssets = Assets.images.clanLogos;
+
+    final logos = {
+      2: logoAssets.brujah,
+      4: logoAssets.gangrel,
+    };
+
+    return logos[id];
+  }
 }
