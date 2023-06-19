@@ -23,7 +23,6 @@ class GameCharactersPage extends StatelessWidget {
         ),
       ),
       body: const _GameCharactersBody(),
-      floatingActionButton: _AddCharacter(),
     );
   }
 }
@@ -82,41 +81,5 @@ class _Empty extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(child: Text("EMPTY"));
-  }
-}
-
-// TODO: Remove it
-class _AddCharacter extends ConsumerStatefulWidget {
-  const _AddCharacter({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  ConsumerState createState() => __AddCharacterState();
-}
-
-class __AddCharacterState extends ConsumerState<_AddCharacter> {
-  int _clanId = 1;
-
-  @override
-  Widget build(BuildContext context) {
-    return FloatingActionButton(
-      onPressed: () {
-        ref
-            .read(gameCharactersControllerProvider.notifier)
-            .addCharacter(GameCharacter(
-              name: "TEst",
-              generation: 12,
-              clan: Clan(id: _clanId, name: "asd"),
-            ));
-        setState(() {
-          _clanId++;
-        });
-
-        // TODO: Call create character from Provider
-        // ref.read(c)
-      },
-      child: const Icon(Icons.add),
-    );
   }
 }
