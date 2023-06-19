@@ -57,19 +57,20 @@ class _GameCharactersList extends StatelessWidget {
 
   final List<GameCharacter> data;
 
+  VoidCallback _handleTap(BuildContext context, GameCharacter gameCharacter) => () {
+        context.router.push(GameCharacterDetailsRoute(gameCharacter: gameCharacter));
+      };
+
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
       padding: const EdgeInsets.all(15),
-      itemBuilder: (context, index) => GameCharacterCard(data[index]),
+      itemBuilder: (context, index) => GameCharacterCard(
+        data[index],
+        onTap: _handleTap(context, data[index]),
+      ),
       separatorBuilder: (context, index) => const SizedBox(height: 10),
       itemCount: data.length,
-    );
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(15),
-      child: Column(
-        children: data.map((item) => GameCharacterCard(item)).toList(),
-      ),
     );
   }
 }
@@ -84,6 +85,7 @@ class _Empty extends StatelessWidget {
   }
 }
 
+// TODO: Remove it
 class _AddCharacter extends ConsumerStatefulWidget {
   const _AddCharacter({
     Key? key,

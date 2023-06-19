@@ -29,63 +29,68 @@ extension _EGeneration on int {
 }
 
 class GameCharacterCard extends StatelessWidget {
-  const GameCharacterCard(this.gameCharacter, {super.key});
+  const GameCharacterCard(this.gameCharacter, {super.key, this.onTap});
 
   final GameCharacter gameCharacter;
+
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
     final colorScheme = theme.colorScheme;
-    return Container(
-      width: double.infinity,
-      height: CardConstants.height,
-      decoration: BoxDecoration(
-        color: colorScheme.surface,
-        borderRadius: BorderRadius.circular(CardConstants.borderRadius),
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          _CharacterImage(gameCharacter),
-          Expanded(
-            child: Padding(
-              padding: CardConstants.contentPadding,
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Text(
-                    gameCharacter.name,
-                    textAlign: TextAlign.start,
-                    maxLines: 1,
-                    style: textTheme.titleLarge!.copyWith(
-                      color: colorScheme.primary,
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        width: double.infinity,
+        height: CardConstants.height,
+        decoration: BoxDecoration(
+          color: colorScheme.surface,
+          borderRadius: BorderRadius.circular(CardConstants.borderRadius),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            _CharacterImage(gameCharacter),
+            Expanded(
+              child: Padding(
+                padding: CardConstants.contentPadding,
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      gameCharacter.name,
+                      textAlign: TextAlign.start,
+                      maxLines: 1,
+                      style: textTheme.titleLarge!.copyWith(
+                        color: colorScheme.primary,
+                      ),
                     ),
-                  ),
-                  Text(
-                    '${gameCharacter.clan.name}: ${gameCharacter.generation.roman}',
-                    textAlign: TextAlign.start,
-                    maxLines: 1,
-                    style: textTheme.bodyMedium!
-                        .copyWith(color: colorScheme.onSurface),
-                  ),
-                  // TODO: Change character date
-                  Text(
-                    '16.04.2023',
-                    textAlign: TextAlign.end,
-                    maxLines: 1,
-                    style: textTheme.bodySmall?.copyWith(
-                      color: colorScheme.onSurface.withOpacity(.5),
+                    Text(
+                      '${gameCharacter.clan.name}: ${gameCharacter.generation.roman}',
+                      textAlign: TextAlign.start,
+                      maxLines: 1,
+                      style: textTheme.bodyMedium!
+                          .copyWith(color: colorScheme.onSurface),
                     ),
-                  ),
-                ],
+                    // TODO: Change character date
+                    Text(
+                      '16.04.2023',
+                      textAlign: TextAlign.end,
+                      maxLines: 1,
+                      style: textTheme.bodySmall?.copyWith(
+                        color: colorScheme.onSurface.withOpacity(.5),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
