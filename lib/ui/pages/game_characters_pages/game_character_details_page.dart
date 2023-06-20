@@ -46,7 +46,7 @@ class _Disciplines extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final characterDisciplinesController = ref.watch(characterDisciplinesControllerProvider);
+    // final characterDisciplinesController = ref.watch(characterDisciplinesControllerProvider);
     final characterDisciplines = ref.watch(characterDisciplinesProvider);
     return Column(
       children: characterDisciplines
