@@ -51,4 +51,14 @@ class GameCharacters extends _$GameCharacters {
 }
 
 
+@riverpod
+class GameCharacterController extends _$GameCharacterController {
+  @override
+  GameCharacter? build() {
+    return null;
+  }
 
+  void set(GameCharacter? character) {
+    state = character;
+  }
+}

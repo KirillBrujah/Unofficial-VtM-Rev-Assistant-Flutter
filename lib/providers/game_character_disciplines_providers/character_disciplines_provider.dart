@@ -11,23 +11,36 @@ part 'character_disciplines_provider.g.dart';
 class CharacterDisciplinesController extends _$CharacterDisciplinesController {
   late Database _database;
 
-
   late final CharacterDisciplines _characterDisciplinesNotifier;
 
   @override
   FutureOr<void> build() async {
     _database = await ref.watch(databaseProvider.future);
+    _characterDisciplinesNotifier =
+        ref.read(characterDisciplinesProvider.notifier);
 
-    _characterDisciplinesNotifier = ref.read(characterDisciplinesProvider.notifier);
 
-    final disciplines = await _database.getCharacterDisciplines(gameCharacterId: 1);
 
-    _characterDisciplinesNotifier.add(disciplines);
+    ref.listen(
+      gameCharacterControllerProvider,
+      (previous, next) async {
+        print("LISTENR");
+        if (next == null) {
+          _characterDisciplinesNotifier.clear();
+          return;
+        }
+
+        final disciplines = await _database.getCharacterDisciplines(
+          gameCharacterId: next.id!,
+        );
+
+        _characterDisciplinesNotifier.add(disciplines);
+      },
+    );
 
     return;
   }
 }
-
 
 @riverpod
 class CharacterDisciplines extends _$CharacterDisciplines {
@@ -40,6 +53,8 @@ class CharacterDisciplines extends _$CharacterDisciplines {
   void add(List<CharacterDiscipline> disciplines) {
     state = [...state, ...disciplines];
   }
+
+  void clear() {
+    state = [];
+  }
 }
-
-
