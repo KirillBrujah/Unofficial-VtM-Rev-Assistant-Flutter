@@ -19,9 +19,11 @@ class GameCharacterDetailsPage extends ConsumerWidget {
     return Scaffold(
       appBar: CustomAppBar(
         title: gameCharacter.name,
-        action: AppBarEditAction(onTap: () {
-          // TODO: Go to edit page
-        }),
+        action: AppBarEditAction(
+          onTap: () {
+            // TODO: Go to edit page
+          },
+        ),
       ),
       body: const _Details(),
     );
@@ -37,7 +39,7 @@ class _Details extends StatelessWidget {
       child: Column(
         children: const [
           _Disciplines(),
-         ],
+        ],
       ),
     );
   }

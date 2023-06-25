@@ -4,7 +4,7 @@ import 'package:vtm_assistant/models/models.dart';
 import 'package:vtm_assistant/providers/providers.dart';
 import 'package:vtm_assistant/services/db_services/game_characters_service.dart';
 
-part 'game_characters_provider.g.dart';
+part 'game_characters_providers.g.dart';
 
 @riverpod
 class GameCharactersController extends _$GameCharactersController {

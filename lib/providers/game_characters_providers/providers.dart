@@ -1,1 +1,1 @@
-export 'game_characters_provider.dart';
+export 'game_characters_providers.dart';
