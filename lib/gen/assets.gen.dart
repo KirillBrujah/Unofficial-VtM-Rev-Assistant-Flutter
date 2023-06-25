@@ -23,6 +23,7 @@ class $AssetsImagesGen {
   const $AssetsImagesGen();
 
   $AssetsImagesClanLogosGen get clanLogos => const $AssetsImagesClanLogosGen();
+  $AssetsImagesIconGen get icon => const $AssetsImagesIconGen();
 }
 
 class $AssetsImagesClanLogosGen {
@@ -96,6 +97,20 @@ class $AssetsImagesClanLogosGen {
         tzimisce,
         ventrue
       ];
+}
+
+class $AssetsImagesIconGen {
+  const $AssetsImagesIconGen();
+
+  /// File path: assets/images/icon/logo-foreground.png
+  AssetGenImage get logoForeground =>
+      const AssetGenImage('assets/images/icon/logo-foreground.png');
+
+  /// File path: assets/images/icon/logo.png
+  AssetGenImage get logo => const AssetGenImage('assets/images/icon/logo.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [logoForeground, logo];
 }
 
 class Assets {

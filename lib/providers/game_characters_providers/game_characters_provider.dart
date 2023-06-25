@@ -50,15 +50,19 @@ class GameCharacters extends _$GameCharacters {
   }
 }
 
-
 @riverpod
 class GameCharacterController extends _$GameCharacterController {
+  late final CharacterDisciplinesController disciplinesController;
+
   @override
-  GameCharacter? build() {
+  FutureOr<GameCharacter?> build() async {
+    disciplinesController =
+        await ref.read(characterDisciplinesControllerProvider.notifier);
     return null;
   }
 
-  void set(GameCharacter? character) {
-    state = character;
+  Future<void> load(GameCharacter character) async {
+    await future;
+    await disciplinesController.fetch(character.id!);
   }
 }

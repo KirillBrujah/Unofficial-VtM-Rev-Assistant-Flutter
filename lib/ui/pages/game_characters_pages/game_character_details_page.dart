@@ -6,14 +6,16 @@ import 'package:vtm_assistant/providers/providers.dart';
 import 'package:vtm_assistant/ui/widgets/widgets.dart';
 
 @RoutePage()
-class GameCharacterDetailsPage extends StatelessWidget {
+class GameCharacterDetailsPage extends ConsumerWidget {
   const GameCharacterDetailsPage({Key? key, required this.gameCharacter})
       : super(key: key);
 
   final GameCharacter gameCharacter;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.read(gameCharacterControllerProvider.notifier).load(gameCharacter);
+
     return Scaffold(
       appBar: CustomAppBar(
         title: gameCharacter.name,
@@ -33,7 +35,7 @@ class _Details extends StatelessWidget {
       child: Column(
         children: const [
           _Disciplines(),
-        ],
+         ],
       ),
     );
   }
@@ -46,8 +48,8 @@ class _Disciplines extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // final characterDisciplinesController = ref.watch(characterDisciplinesControllerProvider);
     final characterDisciplines = ref.watch(characterDisciplinesProvider);
+
     return Column(
       children: characterDisciplines
           .map((discipline) => Text(discipline.discipline.name))

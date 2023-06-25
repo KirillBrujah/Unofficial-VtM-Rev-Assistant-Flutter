@@ -51,29 +51,27 @@ class _GameCharactersBody extends ConsumerWidget {
   }
 }
 
-class _GameCharactersList extends ConsumerWidget {
+class _GameCharactersList extends StatelessWidget {
   const _GameCharactersList({Key? key, required this.data}) : super(key: key);
 
   final List<GameCharacter> data;
 
   VoidCallback _handleTap(
     BuildContext context,
-    WidgetRef ref,
     GameCharacter gameCharacter,
   ) =>
       () {
-        ref.read(gameCharacterControllerProvider.notifier).set(gameCharacter);
         context.router
             .push(GameCharacterDetailsRoute(gameCharacter: gameCharacter));
       };
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return ListView.separated(
       padding: const EdgeInsets.all(15),
       itemBuilder: (context, index) => GameCharacterCard(
         data[index],
-        onTap: _handleTap(context, ref, data[index]),
+        onTap: _handleTap(context, data[index]),
       ),
       separatorBuilder: (context, index) => const SizedBox(height: 10),
       itemCount: data.length,
