@@ -19,7 +19,9 @@ class GameCharacterDetailsPage extends ConsumerWidget {
     return Scaffold(
       appBar: CustomAppBar(
         title: gameCharacter.name,
-        // TODO: Edit action
+        action: AppBarEditAction(onTap: () {
+          // TODO: Go to edit page
+        }),
       ),
       body: const _Details(),
     );
