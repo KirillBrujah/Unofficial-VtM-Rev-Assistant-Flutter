@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "name": "Assamite",
+    "logoPath": "assets/images/clan_logos/assamite.webp"
+  },
+  {
+    "id": 2,
+    "name": "Brujah",
+    "logoPath": "assets/images/clan_logos/brujah.webp"
+  },
+  {
+    "id": 3,
+    "name": "Followers of Set",
+    "logoPath": "assets/images/clan_logos/followers_of_set.webp"
+  },
+  {
+    "id": 4,
+    "name": "Gangrel",
+    "logoPath": "assets/images/clan_logos/gangrel.webp"
+  },
+  {
+    "id": 5,
+    "name": "Giovanni",
+    "logoPath": "assets/images/clan_logos/giovanni.webp"
+  },
+  {
+    "id": 6,
+    "name": "Lasombra",
+    "logoPath": "assets/images/clan_logos/lasombra.webp"
+  },
+  {
+    "id": 7,
+    "name": "Malkavian",
+    "logoPath": "assets/images/clan_logos/malkavian.webp"
+  },
+  {
+    "id": 8,
+    "name": "Nosferatu",
+    "logoPath": "assets/images/clan_logos/nosferatu.png"
+  },
+  {
+    "id": 9,
+    "name": "Ravnos",
+    "logoPath": "assets/images/clan_logos/ravnos.webp"
+  },
+  {
+    "id": 10,
+    "name": "Toreador",
+    "logoPath": "assets/images/clan_logos/toreador.webp"
+  },
+  {
+    "id": 11,
+    "name": "Tremere",
+    "logoPath": "assets/images/clan_logos/tremere.png"
+  },
+  {
+    "id": 12,
+    "name": "Tzimisce",
+    "logoPath": "assets/images/clan_logos/tzimisce.webp"
+  },
+  {
+    "id": 13,
+    "name": "Ventrue",
+    "logoPath": "assets/images/clan_logos/ventrue.webp"
+  }
+]

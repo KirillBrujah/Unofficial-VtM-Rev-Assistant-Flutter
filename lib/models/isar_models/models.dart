@@ -1,0 +1,1 @@
+export 'game_character_models.dart';

@@ -12,11 +12,14 @@ import 'package:flutter/widgets.dart';
 class $AssetsDbGen {
   const $AssetsDbGen();
 
+  /// File path: assets/db/clans.json
+  String get clans => 'assets/db/clans.json';
+
   /// File path: assets/db/vtm_assistant.db
   String get vtmAssistant => 'assets/db/vtm_assistant.db';
 
   /// List of all assets
-  List<String> get values => [vtmAssistant];
+  List<String> get values => [clans, vtmAssistant];
 }
 
 class $AssetsImagesGen {

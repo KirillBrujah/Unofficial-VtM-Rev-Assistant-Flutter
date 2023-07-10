@@ -14,7 +14,7 @@ class GameCharacterDetailsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.read(gameCharacterControllerProvider.notifier).load(gameCharacter);
+    // ref.read(gameCharacterControllerProvider.notifier).load(gameCharacter);
 
     return Scaffold(
       appBar: CustomAppBar(
@@ -52,12 +52,13 @@ class _Disciplines extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final characterDisciplines = ref.watch(characterDisciplinesProvider);
-
-    return Column(
-      children: characterDisciplines
-          .map((discipline) => Text(discipline.discipline.name))
-          .toList(),
-    );
+    return Placeholder();
+    // final characterDisciplines = ref.watch(characterDisciplinesProvider);
+    //
+    // return Column(
+    //   children: characterDisciplines
+    //       .map((discipline) => Text(discipline.discipline.name))
+    //       .toList(),
+    // );
   }
 }

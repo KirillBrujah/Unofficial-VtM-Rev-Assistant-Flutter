@@ -70,7 +70,7 @@ class GameCharacterCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '${gameCharacter.clan.name}: ${gameCharacter.generation.roman}',
+                      '${gameCharacter.clan.value!.name}: ${gameCharacter.generation.roman}',
                       textAlign: TextAlign.start,
                       maxLines: 1,
                       style: textTheme.bodyMedium!
@@ -108,12 +108,15 @@ class _CharacterImage extends StatelessWidget {
       decoration: BoxDecoration(
         color: colorScheme.secondary,
         borderRadius: const BorderRadius.horizontal(
-            left: Radius.circular(CardConstants.borderRadius)),
+          left: Radius.circular(
+            CardConstants.borderRadius,
+          ),
+        ),
       ),
       padding: CardConstants.imagePadding,
       height: CardConstants.height,
       width: CardConstants.height,
-      child: gameCharacter.clan.logo?.image(),
+      child: Image.asset(gameCharacter.clan.value!.logoPath),
     );
   }
 }

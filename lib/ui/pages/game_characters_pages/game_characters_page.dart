@@ -22,7 +22,7 @@ class GameCharactersPage extends StatelessWidget {
           },
         ),
       ),
-      body: const _GameCharactersBody(),
+      body: const _Clans(),
     );
   }
 }
@@ -34,19 +34,54 @@ class _GameCharactersBody extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final gameCharactersController =
-        ref.watch(gameCharactersControllerProvider);
+    return Placeholder();
+    //
+    // final gameCharactersController =
+    //     ref.watch(gameCharactersControllerProvider);
+    //
+    // final gameCharacters = ref.watch(gameCharactersProvider);
+    //
+    // return gameCharactersController.when(
+    //   data: (_) => gameCharacters.isNotEmpty
+    //       ? _GameCharactersList(data: gameCharacters)
+    //       : const _Empty(),
+    //   // TODO: Replace to kErrorWidget
+    //   error: (error, stackTrace) => Center(child: Text(error.toString())),
+    //   // TODO: Replace to kLoadingWidget
+    //   loading: () => const Center(child: CircularProgressIndicator()),
+    // );
+  }
+}
 
-    final gameCharacters = ref.watch(gameCharactersProvider);
+// TODO: Remove this widget
+class _Clans extends ConsumerWidget {
+  const _Clans({
+    Key? key,
+  }) : super(key: key);
 
-    return gameCharactersController.when(
-      data: (_) => gameCharacters.isNotEmpty
-          ? _GameCharactersList(data: gameCharacters)
-          : const _Empty(),
-      // TODO: Replace to kErrorWidget
-      error: (error, stackTrace) => Center(child: Text(error.toString())),
-      // TODO: Replace to kLoadingWidget
-      loading: () => const Center(child: CircularProgressIndicator()),
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final clans = ref.watch(clansProvider);
+    return clans.when(
+      loading: () => const CircularProgressIndicator(),
+      error: (error, stackTrace) => Text(error.toString()),
+      data: (data) => SingleChildScrollView(
+        child: Column(
+          children: data
+              .map((clan) => Row(
+                    children: [
+                      Expanded(child: Text(clan.name)),
+                      Image.asset(
+                        color: Theme.of(context).colorScheme.onBackground,
+                        clan.logoPath,
+                        width: 100,
+                        height: 100,
+                      ),
+                    ],
+                  ))
+              .toList(),
+        ),
+      ),
     );
   }
 }
