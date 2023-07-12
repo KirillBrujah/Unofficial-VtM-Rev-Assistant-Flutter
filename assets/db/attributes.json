@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Strength",
+    "type": "physical",
+    "description": "Raw physical strength"
+  },
+  {
+    "id": 2,
+    "name": "Dexterity",
+    "type": "physical",
+    "description": "Speed and ease of movement, covering both full body movement (i.e. gymnastics) and hand-eye coordination"
+  },
+  {
+    "id": 3,
+    "name": "Endurance",
+    "type": "physical",
+    "description": "Physical hardiness, including resistance to disease and physical trauma and how fast you can recover"
+  },
+  {
+    "id": 4,
+    "name": "Charisma",
+    "type": "social",
+    "description": "How you come across to others socially; how you conduct yourself in public when not actively interacting with others"
+  },
+  {
+    "id": 5,
+    "name": "Manipulation",
+    "type": "social",
+    "description": "How easily you bend others to your will, either through persuasion or threats"
+  },
+  {
+    "id": 6,
+    "name": "Appearance",
+    "type": "social",
+    "description": "Your level of attractiveness; may be raised temporarily with clothing or other adornment"
+  },
+  {
+    "id": 7,
+    "name": "Intelligence",
+    "type": "mental",
+    "description": "Memory and raw brain power"
+  },
+  {
+    "id": 8,
+    "name": "Perception",
+    "type": "mental",
+    "description": "Your ability to notice things, to perceive the world around you, through all your senses"
+  },
+  {
+    "id": 9,
+    "name": "Wits",
+    "type": "mental",
+    "description": "Quickness of thinking; measures how easily you make leaps of logic or intuition"
+  }
+]

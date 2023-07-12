@@ -23,8 +23,10 @@ class IsarController extends _$IsarController {
     final dir = await getApplicationDocumentsDirectory();
     final isar = await Isar.open(
       [
-        GameCharacterSchema,
+        AttributeSchema,
         ClanSchema,
+        GameCharacterSchema,
+        CharacterAttributeSchema,
       ],
       directory: dir.path,
     );
@@ -34,6 +36,14 @@ class IsarController extends _$IsarController {
     await isar.writeTxn(() async {
       await isar.clear();
     });
+
+    if (await isar.attributes.count() == 0) {
+      final attributesJson = await rootBundle.getJsonList(Assets.db.attributes);
+
+      await isar.writeTxn(() async {
+        isar.attributes.importJson(attributesJson);
+      });
+    }
 
     if (await isar.clans.count() == 0) {
       final clansJson = await rootBundle.getJsonList(Assets.db.clans);
@@ -50,7 +60,46 @@ class IsarController extends _$IsarController {
       });
     }*/
 
-    print(isar.clans);
+    await isar.writeTxn(
+      () async {
+        await isar.gameCharacters.importJson(
+          [
+            {
+              "id": 1,
+              "name": "Killian",
+              "clan": {
+                "id": 2,
+                "name": "Brujah",
+                "logoPath": "assets/images/clan_logos/brujah.webp"
+              },
+              "generation": 4,
+              "attributes": [],
+            },
+          ],
+        );
+
+        final killian = await isar.gameCharacters.get(1);
+        final strength = await isar.attributes.get(1);
+
+        final characterAttribute = CharacterAttribute()
+          ..level = 6
+          ..gameCharacter.value = killian
+          ..attribute.value = strength;
+
+        final newAttribute = await (isar.characterAttributes
+            .get(await isar.characterAttributes.put(characterAttribute)));
+
+        killian!.attributes.add(newAttribute!);
+
+        await newAttribute!.gameCharacter.save();
+        await newAttribute.attribute.save();
+        await killian!.attributes.save();
+      },
+    );
+
+    print(
+        (await isar.gameCharacters.where().findAll()).first.attributes.length);
+    print((await isar.characterAttributes.where().findAll()));
 
     return isar;
   }

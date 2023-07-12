@@ -12,6 +12,9 @@ import 'package:flutter/widgets.dart';
 class $AssetsDbGen {
   const $AssetsDbGen();
 
+  /// File path: assets/db/attributes.json
+  String get attributes => 'assets/db/attributes.json';
+
   /// File path: assets/db/clans.json
   String get clans => 'assets/db/clans.json';
 
@@ -19,7 +22,7 @@ class $AssetsDbGen {
   String get vtmAssistant => 'assets/db/vtm_assistant.db';
 
   /// List of all assets
-  List<String> get values => [clans, vtmAssistant];
+  List<String> get values => [attributes, clans, vtmAssistant];
 }
 
 class $AssetsImagesGen {
