@@ -11,7 +11,7 @@ class GameCharacter {
   late final String? description;
 
   final clan = IsarLink<Clan>();
-  
+
   @Backlink(to: 'gameCharacter')
   final attributes = IsarLinks<CharacterAttribute>();
 }
@@ -23,7 +23,6 @@ class Clan {
   late final String name;
   late final String logoPath;
 }
-
 
 @collection
 class Attribute {
