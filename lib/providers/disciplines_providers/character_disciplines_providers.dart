@@ -1,9 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:vtm_assistant/models/models.dart';
 
 import 'package:vtm_assistant/providers/providers.dart';
-import 'package:vtm_assistant/services/db_services/disciplines_service.dart';
 
 // part 'character_disciplines_providers.g.dart';
 

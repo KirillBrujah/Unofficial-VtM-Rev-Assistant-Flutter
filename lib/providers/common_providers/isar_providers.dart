@@ -32,7 +32,6 @@ class IsarController extends _$IsarController {
     );
 
     // TODO: Remove clear
-
     await isar.writeTxn(() async {
       await isar.clear();
     });

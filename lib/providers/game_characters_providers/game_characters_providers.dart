@@ -1,9 +1,7 @@
 import 'package:isar/isar.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:vtm_assistant/models/models.dart';
 import 'package:vtm_assistant/providers/providers.dart';
-import 'package:vtm_assistant/services/db_services/game_characters_service.dart';
 
 part 'game_characters_providers.g.dart';
 
@@ -19,6 +17,21 @@ Stream<List<Clan>> clans(ClansRef ref) async* {
   final isar = await ref.watch(isarControllerProvider.future);
   yield (await isar.clans.where().findAll());
   yield* isar.clans.where().watch();
+}
+
+@riverpod
+class GameCharactersController extends _$GameCharactersController {
+  // TODO: Replace String with object for status controlling
+  @override
+  FutureOr<String?> build() async {
+    return null;
+  }
+
+
+  Future<void> createCharacter() async {
+    //
+  }
+
 }
 
 // @riverpod
