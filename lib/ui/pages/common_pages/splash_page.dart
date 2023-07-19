@@ -22,7 +22,7 @@ class _SplashBody extends ConsumerWidget {
     ref.listen(splashPreloadProvider, (previous, next) {
       next.whenOrNull(data: (preloadComplete) {
         if (preloadComplete) {
-          context.router.replace(const GameCharactersRoute());
+          context.router.replace(const CharactersRoute());
         }
       });
     });

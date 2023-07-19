@@ -12,9 +12,9 @@ class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(page: SplashRoute.page, initial: true),
-        AutoRoute(page: GameCharactersRoute.page),
+        AutoRoute(page: CharactersRoute.page),
         AutoRoute(page: CreateCharacterRoute.page),
-        AutoRoute(page: GameCharacterDetailsRoute.page),
+        AutoRoute(page: CharacterDetailsRoute.page),
         AutoRoute(page: EditCharacterRoute.page),
       ];
 }

@@ -21,12 +21,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SplashPage(),
       );
     },
-    GameCharactersRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const GameCharactersPage(),
-      );
-    },
     CreateCharacterRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -39,18 +33,24 @@ abstract class _$AppRouter extends RootStackRouter {
         routeData: routeData,
         child: EditCharacterPage(
           key: args.key,
-          gameCharacter: args.gameCharacter,
+          character: args.character,
         ),
       );
     },
-    GameCharacterDetailsRoute.name: (routeData) {
-      final args = routeData.argsAs<GameCharacterDetailsRouteArgs>();
+    CharacterDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<CharacterDetailsRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: GameCharacterDetailsPage(
+        child: CharacterDetailsPage(
           key: args.key,
-          gameCharacter: args.gameCharacter,
+          character: args.character,
         ),
+      );
+    },
+    CharactersRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CharactersPage(),
       );
     },
   };
@@ -66,20 +66,6 @@ class SplashRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SplashRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [GameCharactersPage]
-class GameCharactersRoute extends PageRouteInfo<void> {
-  const GameCharactersRoute({List<PageRouteInfo>? children})
-      : super(
-          GameCharactersRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'GameCharactersRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -103,13 +89,13 @@ class CreateCharacterRoute extends PageRouteInfo<void> {
 class EditCharacterRoute extends PageRouteInfo<EditCharacterRouteArgs> {
   EditCharacterRoute({
     Key? key,
-    required GameCharacter gameCharacter,
+    required Character character,
     List<PageRouteInfo>? children,
   }) : super(
           EditCharacterRoute.name,
           args: EditCharacterRouteArgs(
             key: key,
-            gameCharacter: gameCharacter,
+            character: character,
           ),
           initialChildren: children,
         );
@@ -123,54 +109,67 @@ class EditCharacterRoute extends PageRouteInfo<EditCharacterRouteArgs> {
 class EditCharacterRouteArgs {
   const EditCharacterRouteArgs({
     this.key,
-    required this.gameCharacter,
+    required this.character,
   });
 
   final Key? key;
 
-  final GameCharacter gameCharacter;
+  final Character character;
 
   @override
   String toString() {
-    return 'EditCharacterRouteArgs{key: $key, gameCharacter: $gameCharacter}';
+    return 'EditCharacterRouteArgs{key: $key, character: $character}';
   }
 }
 
 /// generated route for
-/// [GameCharacterDetailsPage]
-class GameCharacterDetailsRoute
-    extends PageRouteInfo<GameCharacterDetailsRouteArgs> {
-  GameCharacterDetailsRoute({
+/// [CharacterDetailsPage]
+class CharacterDetailsRoute extends PageRouteInfo<CharacterDetailsRouteArgs> {
+  CharacterDetailsRoute({
     Key? key,
-    required GameCharacter gameCharacter,
+    required Character character,
     List<PageRouteInfo>? children,
   }) : super(
-          GameCharacterDetailsRoute.name,
-          args: GameCharacterDetailsRouteArgs(
+          CharacterDetailsRoute.name,
+          args: CharacterDetailsRouteArgs(
             key: key,
-            gameCharacter: gameCharacter,
+            character: character,
           ),
           initialChildren: children,
         );
 
-  static const String name = 'GameCharacterDetailsRoute';
+  static const String name = 'CharacterDetailsRoute';
 
-  static const PageInfo<GameCharacterDetailsRouteArgs> page =
-      PageInfo<GameCharacterDetailsRouteArgs>(name);
+  static const PageInfo<CharacterDetailsRouteArgs> page =
+      PageInfo<CharacterDetailsRouteArgs>(name);
 }
 
-class GameCharacterDetailsRouteArgs {
-  const GameCharacterDetailsRouteArgs({
+class CharacterDetailsRouteArgs {
+  const CharacterDetailsRouteArgs({
     this.key,
-    required this.gameCharacter,
+    required this.character,
   });
 
   final Key? key;
 
-  final GameCharacter gameCharacter;
+  final Character character;
 
   @override
   String toString() {
-    return 'GameCharacterDetailsRouteArgs{key: $key, gameCharacter: $gameCharacter}';
+    return 'CharacterDetailsRouteArgs{key: $key, character: $character}';
   }
+}
+
+/// generated route for
+/// [CharactersPage]
+class CharactersRoute extends PageRouteInfo<void> {
+  const CharactersRoute({List<PageRouteInfo>? children})
+      : super(
+          CharactersRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CharactersRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }

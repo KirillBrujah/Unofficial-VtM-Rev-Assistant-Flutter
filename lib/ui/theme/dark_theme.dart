@@ -7,4 +7,8 @@ final kDarkTheme = ThemeData(
   useMaterial3: true,
   colorScheme: boneColorScheme,
   textTheme: kTextTheme,
+  snackBarTheme: const SnackBarThemeData(
+    backgroundColor: Colors.black,
+    contentTextStyle: TextStyle(color: Colors.white)
+  ),
 );

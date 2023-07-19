@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vtm_assistant/gen/assets.gen.dart';
 import 'package:vtm_assistant/models/models.dart';
 import 'package:vtm_assistant/ui/theme/constants.dart';
+import 'package:intl/intl.dart';
 
 extension _EGeneration on int {
   String get roman {
@@ -28,10 +28,14 @@ extension _EGeneration on int {
   }
 }
 
-class GameCharacterCard extends StatelessWidget {
-  const GameCharacterCard(this.gameCharacter, {super.key, this.onTap});
+extension _EDateTime on DateTime {
+  String get date => DateFormat('dd.MM.yyyy').format(this);
+}
 
-  final GameCharacter gameCharacter;
+class CharacterCard extends StatelessWidget {
+  const CharacterCard(this.character, {super.key, this.onTap});
+
+  final Character character;
 
   final VoidCallback? onTap;
 
@@ -40,6 +44,7 @@ class GameCharacterCard extends StatelessWidget {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
     final colorScheme = theme.colorScheme;
+
     return InkWell(
       onTap: onTap,
       child: Container(
@@ -52,7 +57,7 @@ class GameCharacterCard extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            _CharacterImage(gameCharacter),
+            _CharacterImage(character),
             Expanded(
               child: Padding(
                 padding: CardConstants.contentPadding,
@@ -62,7 +67,7 @@ class GameCharacterCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
-                      gameCharacter.name,
+                      character.name,
                       textAlign: TextAlign.start,
                       maxLines: 1,
                       style: textTheme.titleLarge!.copyWith(
@@ -70,15 +75,14 @@ class GameCharacterCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '${gameCharacter.clan.value!.name}: ${gameCharacter.generation.roman}',
+                      '${character.clan.value?.name}: ${character.generation.roman}',
                       textAlign: TextAlign.start,
                       maxLines: 1,
                       style: textTheme.bodyMedium!
                           .copyWith(color: colorScheme.onSurface),
                     ),
-                    // TODO: Change character date
                     Text(
-                      '16.04.2023',
+                      character.createdOn.date,
                       textAlign: TextAlign.end,
                       maxLines: 1,
                       style: textTheme.bodySmall?.copyWith(
@@ -97,9 +101,9 @@ class GameCharacterCard extends StatelessWidget {
 }
 
 class _CharacterImage extends StatelessWidget {
-  const _CharacterImage(this.gameCharacter, {Key? key}) : super(key: key);
+  const _CharacterImage(this.character, {Key? key}) : super(key: key);
 
-  final GameCharacter gameCharacter;
+  final Character character;
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +120,7 @@ class _CharacterImage extends StatelessWidget {
       padding: CardConstants.imagePadding,
       height: CardConstants.height,
       width: CardConstants.height,
-      child: Image.asset(gameCharacter.clan.value!.logoPath),
+      child: Image.asset(character.clan.value?.logoPath ?? ""),
     );
   }
 }

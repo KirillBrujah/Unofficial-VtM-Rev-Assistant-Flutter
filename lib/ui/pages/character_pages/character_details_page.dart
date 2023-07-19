@@ -6,19 +6,19 @@ import 'package:vtm_assistant/providers/providers.dart';
 import 'package:vtm_assistant/ui/widgets/widgets.dart';
 
 @RoutePage()
-class GameCharacterDetailsPage extends ConsumerWidget {
-  const GameCharacterDetailsPage({Key? key, required this.gameCharacter})
+class CharacterDetailsPage extends ConsumerWidget {
+  const CharacterDetailsPage({Key? key, required this.character})
       : super(key: key);
 
-  final GameCharacter gameCharacter;
+  final Character character;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // ref.read(gameCharacterControllerProvider.notifier).load(gameCharacter);
+    // ref.read(characterControllerProvider.notifier).load(character);
 
     return Scaffold(
       appBar: CustomAppBar(
-        title: gameCharacter.name,
+        title: character.name,
         action: AppBarEditAction(
           onTap: () {
             // TODO: Go to edit page

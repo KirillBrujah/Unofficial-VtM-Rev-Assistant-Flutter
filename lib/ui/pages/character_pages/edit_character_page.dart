@@ -6,16 +6,16 @@ import 'package:vtm_assistant/ui/widgets/widgets.dart';
 
 @RoutePage()
 class EditCharacterPage extends StatelessWidget {
-  const EditCharacterPage({Key? key, required this.gameCharacter})
+  const EditCharacterPage({Key? key, required this.character})
       : super(key: key);
 
-  final GameCharacter gameCharacter;
+  final Character character;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: gameCharacter.name,
+        title: character.name,
       ),
     );
   }

@@ -1,18 +1,19 @@
 import 'package:isar/isar.dart';
 
-part 'game_character_models.g.dart';
+part 'character_models.g.dart';
 
 @collection
-class GameCharacter {
+class Character {
   Id id = Isar.autoIncrement;
 
   late final String name;
   late final int generation;
   late final String? description;
+  late final DateTime createdOn;
 
   final clan = IsarLink<Clan>();
 
-  @Backlink(to: 'gameCharacter')
+  @Backlink(to: 'character')
   final attributes = IsarLinks<CharacterAttribute>();
 }
 
@@ -38,7 +39,7 @@ class Attribute {
 class CharacterAttribute {
   Id id = Isar.autoIncrement;
 
-  final gameCharacter = IsarLink<GameCharacter>();
+  final character = IsarLink<Character>();
 
   final attribute = IsarLink<Attribute>();
 
