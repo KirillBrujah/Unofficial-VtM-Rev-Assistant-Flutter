@@ -79,6 +79,56 @@ class S {
       args: [],
     );
   }
+
+  /// `General`
+  String get general {
+    return Intl.message(
+      'General',
+      name: 'general',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Attributes`
+  String get attributes {
+    return Intl.message(
+      'Attributes',
+      name: 'attributes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Skills`
+  String get skills {
+    return Intl.message(
+      'Skills',
+      name: 'skills',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Disciplines`
+  String get disciplines {
+    return Intl.message(
+      'Disciplines',
+      name: 'disciplines',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Other`
+  String get other {
+    return Intl.message(
+      'Other',
+      name: 'other',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,5 +1,11 @@
 {
   "title_placeholder": "VtM rev. Assistant",
   "characters": "Characters",
-  "create_character": "Create character"
+  "create_character": "Create character",
+
+  "general": "General",
+  "attributes": "Attributes",
+  "skills": "Skills",
+  "disciplines": "Disciplines",
+  "other": "Other"
 }

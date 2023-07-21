@@ -21,12 +21,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SplashPage(),
       );
     },
-    CreateCharacterRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const CreateCharacterPage(),
-      );
-    },
     EditCharacterRoute.name: (routeData) {
       final args = routeData.argsAs<EditCharacterRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -53,6 +47,42 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const CharactersPage(),
       );
     },
+    CreateCharacterRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CreateCharacterPage(),
+      );
+    },
+    CharacterGeneralRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CharacterGeneralPage(),
+      );
+    },
+    CharacterAttributesRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CharacterAttributesPage(),
+      );
+    },
+    CharacterSkillsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CharacterSkillsPage(),
+      );
+    },
+    CharacterDisciplinesRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CharacterDisciplinesPage(),
+      );
+    },
+    CharacterOtherRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CharacterOtherPage(),
+      );
+    },
   };
 }
 
@@ -66,20 +96,6 @@ class SplashRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SplashRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [CreateCharacterPage]
-class CreateCharacterRoute extends PageRouteInfo<void> {
-  const CreateCharacterRoute({List<PageRouteInfo>? children})
-      : super(
-          CreateCharacterRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'CreateCharacterRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -170,6 +186,90 @@ class CharactersRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'CharactersRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CreateCharacterPage]
+class CreateCharacterRoute extends PageRouteInfo<void> {
+  const CreateCharacterRoute({List<PageRouteInfo>? children})
+      : super(
+          CreateCharacterRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CreateCharacterRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CharacterGeneralPage]
+class CharacterGeneralRoute extends PageRouteInfo<void> {
+  const CharacterGeneralRoute({List<PageRouteInfo>? children})
+      : super(
+          CharacterGeneralRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CharacterGeneralRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CharacterAttributesPage]
+class CharacterAttributesRoute extends PageRouteInfo<void> {
+  const CharacterAttributesRoute({List<PageRouteInfo>? children})
+      : super(
+          CharacterAttributesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CharacterAttributesRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CharacterSkillsPage]
+class CharacterSkillsRoute extends PageRouteInfo<void> {
+  const CharacterSkillsRoute({List<PageRouteInfo>? children})
+      : super(
+          CharacterSkillsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CharacterSkillsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CharacterDisciplinesPage]
+class CharacterDisciplinesRoute extends PageRouteInfo<void> {
+  const CharacterDisciplinesRoute({List<PageRouteInfo>? children})
+      : super(
+          CharacterDisciplinesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CharacterDisciplinesRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CharacterOtherPage]
+class CharacterOtherRoute extends PageRouteInfo<void> {
+  const CharacterOtherRoute({List<PageRouteInfo>? children})
+      : super(
+          CharacterOtherRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CharacterOtherRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

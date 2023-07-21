@@ -13,7 +13,13 @@ class AppRouter extends _$AppRouter {
   List<AutoRoute> get routes => [
         AutoRoute(page: SplashRoute.page, initial: true),
         AutoRoute(page: CharactersRoute.page),
-        AutoRoute(page: CreateCharacterRoute.page),
+        AutoRoute(page: CreateCharacterRoute.page, children: [
+          AutoRoute(page: CharacterGeneralRoute.page, initial: true),
+          AutoRoute(page: CharacterAttributesRoute.page),
+          AutoRoute(page: CharacterSkillsRoute.page),
+          AutoRoute(page: CharacterDisciplinesRoute.page),
+          AutoRoute(page: CharacterOtherRoute.page),
+        ]),
         AutoRoute(page: CharacterDetailsRoute.page),
         AutoRoute(page: EditCharacterRoute.page),
       ];
