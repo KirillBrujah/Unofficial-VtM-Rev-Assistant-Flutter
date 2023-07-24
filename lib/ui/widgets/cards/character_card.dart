@@ -52,7 +52,7 @@ class CharacterCard extends StatelessWidget {
         height: CardConstants.height,
         decoration: BoxDecoration(
           color: colorScheme.surface,
-          borderRadius: BorderRadius.circular(CardConstants.borderRadius),
+          borderRadius: BorderRadius.circular(CardConstants.borderRadius.x),
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -112,9 +112,7 @@ class _CharacterImage extends StatelessWidget {
       decoration: BoxDecoration(
         color: colorScheme.secondary,
         borderRadius: const BorderRadius.horizontal(
-          left: Radius.circular(
-            CardConstants.borderRadius,
-          ),
+          left: CardConstants.borderRadius,
         ),
       ),
       padding: CardConstants.imagePadding,

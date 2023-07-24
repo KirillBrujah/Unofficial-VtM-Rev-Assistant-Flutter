@@ -15,7 +15,7 @@ class CreateCharacterController extends _$CreateCharacterController {
     return false;
   }
 
-  Future<void> createCharacter(CharacterData characterData) async {
+  Future<void> createCharacter(CharacterModel characterData) async {
     await future;
 
     state = const AsyncLoading();
@@ -30,9 +30,8 @@ class CreateCharacterController extends _$CreateCharacterController {
 
         await isar.characters.put(newCharacter);
 
-        final brujah = await isar.clans.get(2);
         newCharacter.clan
-          ..value = brujah
+          ..value = characterData.clan
           ..save();
 
         return true;

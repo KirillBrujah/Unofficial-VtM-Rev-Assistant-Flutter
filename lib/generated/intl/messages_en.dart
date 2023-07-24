@@ -23,12 +23,20 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "attributes": MessageLookupByLibrary.simpleMessage("Attributes"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "characters": MessageLookupByLibrary.simpleMessage("Characters"),
+        "choose_clan": MessageLookupByLibrary.simpleMessage("Choose Clan"),
+        "clan": MessageLookupByLibrary.simpleMessage("Clan"),
         "create_character":
             MessageLookupByLibrary.simpleMessage("Create character"),
+        "description": MessageLookupByLibrary.simpleMessage("Description"),
         "disciplines": MessageLookupByLibrary.simpleMessage("Disciplines"),
+        "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "general": MessageLookupByLibrary.simpleMessage("General"),
+        "generation": MessageLookupByLibrary.simpleMessage("Generation"),
+        "name": MessageLookupByLibrary.simpleMessage("Name"),
         "other": MessageLookupByLibrary.simpleMessage("Other"),
+        "save": MessageLookupByLibrary.simpleMessage("Save"),
         "skills": MessageLookupByLibrary.simpleMessage("Skills"),
         "title_placeholder":
             MessageLookupByLibrary.simpleMessage("VtM rev. Assistant")

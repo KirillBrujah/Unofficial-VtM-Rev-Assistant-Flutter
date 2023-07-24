@@ -4,6 +4,7 @@ import 'package:vtm_assistant/generated/l10n.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:vtm_assistant/models/models.dart';
 import 'package:vtm_assistant/providers/providers.dart';
+import 'package:vtm_assistant/ui/theme/constants.dart';
 import 'package:vtm_assistant/ui/widgets/widgets.dart';
 import 'package:vtm_assistant/utils/app_router.dart';
 
@@ -68,7 +69,7 @@ class _CharactersList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      padding: const EdgeInsets.all(15),
+      padding: CommonConstants.pagePadding,
       itemBuilder: (context, index) => CharacterCard(
         characters[index],
         onTap: _handleTap(context, characters[index]),

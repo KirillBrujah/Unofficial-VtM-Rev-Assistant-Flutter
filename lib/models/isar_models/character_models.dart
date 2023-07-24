@@ -1,4 +1,5 @@
 import 'package:isar/isar.dart';
+import 'package:vtm_assistant/utils/enums.dart';
 
 part 'character_models.g.dart';
 
@@ -23,6 +24,9 @@ class Clan {
 
   late final String name;
   late final String logoPath;
+
+  @override
+  String toString() => name;
 }
 
 @collection
@@ -43,11 +47,5 @@ class CharacterAttribute {
 
   final attribute = IsarLink<Attribute>();
 
-  late final int level;
-}
-
-enum AttributeTypes {
-  physical,
-  social,
-  mental,
+  late final int value;
 }

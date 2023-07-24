@@ -7,5 +7,15 @@
   "attributes": "Attributes",
   "skills": "Skills",
   "disciplines": "Disciplines",
-  "other": "Other"
+  "other": "Other",
+
+  "save": "Save",
+  "cancel": "Cancel",
+  "edit": "Edit",
+
+  "name": "Name",
+  "generation": "Generation",
+  "description": "Description",
+  "clan": "Clan",
+  "choose_clan": "Choose Clan"
 }

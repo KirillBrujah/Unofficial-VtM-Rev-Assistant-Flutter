@@ -9,18 +9,31 @@ class CreateCharacterState extends _$CreateCharacterState {
   late final CreateCharacterController createController;
 
   @override
-  CharacterData build() {
+  CharacterModel build() {
     createController = ref.read(createCharacterControllerProvider.notifier);
-    return const CharacterData();
+
+    return const CharacterModel();
   }
 
   void setName(String name) {
     state = state.copyWith(name: name);
   }
 
+  void setGeneration(int value) {
+    state = state.copyWith(generation: value);
+  }
+
+  void setClan(Clan? clan) {
+    state = state.copyWith(clan: clan);
+  }
+
+  void setDescription(String value) {
+    state = state.copyWith(description: value.isNotEmpty ? value : null);
+  }
+
   // TODO: Other setters
 
-  void create() {
+  void save() {
     if (!state.isReady) return;
 
     createController.createCharacter(state);
