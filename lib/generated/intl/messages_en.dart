@@ -34,10 +34,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "general": MessageLookupByLibrary.simpleMessage("General"),
         "generation": MessageLookupByLibrary.simpleMessage("Generation"),
+        "mental": MessageLookupByLibrary.simpleMessage("Mental"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "other": MessageLookupByLibrary.simpleMessage("Other"),
+        "physical": MessageLookupByLibrary.simpleMessage("Physical"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "skills": MessageLookupByLibrary.simpleMessage("Skills"),
+        "social": MessageLookupByLibrary.simpleMessage("Social"),
         "title_placeholder":
             MessageLookupByLibrary.simpleMessage("VtM rev. Assistant")
       };

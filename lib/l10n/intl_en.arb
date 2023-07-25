@@ -17,5 +17,9 @@
   "generation": "Generation",
   "description": "Description",
   "clan": "Clan",
-  "choose_clan": "Choose Clan"
+  "choose_clan": "Choose Clan",
+
+  "physical": "Physical",
+  "social": "Social",
+  "mental": "Mental"
 }

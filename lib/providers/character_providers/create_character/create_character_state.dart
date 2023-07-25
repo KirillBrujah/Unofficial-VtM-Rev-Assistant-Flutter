@@ -6,11 +6,17 @@ part 'create_character_state.g.dart';
 
 @riverpod
 class CreateCharacterState extends _$CreateCharacterState {
-  late final CreateCharacterController createController;
+  late List<AttributeModel> attributes;
 
   @override
   CharacterModel build() {
-    createController = ref.read(createCharacterControllerProvider.notifier);
+    ref.listen(
+      characterAttributesControllerProvider
+          .select((characterAttributes) => characterAttributes.value ?? []),
+      (previous, next) {
+        attributes = next;
+      },
+    );
 
     return const CharacterModel();
   }
@@ -36,6 +42,11 @@ class CreateCharacterState extends _$CreateCharacterState {
   void save() {
     if (!state.isReady) return;
 
-    createController.createCharacter(state);
+    ref.read(createCharacterControllerProvider.notifier).createCharacter(
+          state,
+          attributes: attributes,
+          // TODO: Skills
+          // TODO: Disciplines
+        );
   }
 }

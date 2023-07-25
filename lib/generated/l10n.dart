@@ -209,6 +209,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Physical`
+  String get physical {
+    return Intl.message(
+      'Physical',
+      name: 'physical',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Social`
+  String get social {
+    return Intl.message(
+      'Social',
+      name: 'social',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mental`
+  String get mental {
+    return Intl.message(
+      'Mental',
+      name: 'mental',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

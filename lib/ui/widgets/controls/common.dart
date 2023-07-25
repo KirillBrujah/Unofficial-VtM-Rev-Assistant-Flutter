@@ -37,7 +37,7 @@ class FieldLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.only(bottom: 8),
       child: Text(
         '$label ${isRequired ? '*' : ""}'.trim(),
         style: Theme.of(context).textTheme.labelLarge,

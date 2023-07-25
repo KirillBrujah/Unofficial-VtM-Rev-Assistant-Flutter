@@ -15,10 +15,16 @@ class CreateCharacterController extends _$CreateCharacterController {
     return false;
   }
 
-  Future<void> createCharacter(CharacterModel characterData) async {
+  Future<void> createCharacter(CharacterModel characterData, {
+    required List<AttributeModel> attributes,
+  }) async {
     await future;
 
     state = const AsyncLoading();
+
+    print(attributes);
+
+    return;
 
     state = await AsyncValue.guard(() async {
       return await isar.writeTxn(() async {

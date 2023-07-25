@@ -9,6 +9,7 @@ part 'character_attributes_controller.g.dart';
 class CharacterAttributesController extends _$CharacterAttributesController {
   @override
   FutureOr<List<AttributeModel>> build() async {
+    print("BUILD ATT");
     final isar = await ref.watch(isarControllerProvider.future);
 
     final isarAttributes = await isar.attributes.where().findAll();
@@ -21,8 +22,12 @@ class CharacterAttributesController extends _$CharacterAttributesController {
   void setValue(int id, int value) {
     final list = state.value!;
     final index = list.indexWhere((element) => element.id == id);
+    final oldValue = list[index].value;
+
     state = AsyncValue.data(
-      List.of(list)..[index] = list[index].copyWith(value: value),
+      List.of(list)
+        ..[index] = list[index]
+            .copyWith(value: (oldValue == 1 && value == 1) ? 0 : value),
     );
   }
 }
