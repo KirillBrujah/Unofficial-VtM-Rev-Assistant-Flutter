@@ -1,5 +1,6 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:vtm_assistant/models/models.dart';
 import 'package:vtm_assistant/ui/theme/constants.dart';
 import 'package:vtm_assistant/ui/widgets/controls/common.dart';
 
@@ -27,7 +28,7 @@ class CustomDropdown<T> extends StatelessWidget {
     var secondary = theme.colorScheme.secondary;
     var primary = theme.colorScheme.primary;
     var textTheme = theme.textTheme;
-    var bodyLarge = textTheme.bodyLarge;
+    var bodyLarge = textTheme.titleMedium;
     return ControlWidget(
       label: label,
       isRequired: isRequired,
@@ -76,19 +77,48 @@ class CustomDropdown<T> extends StatelessWidget {
             selectedMenuItemBuilder: (context, child) {
               return Padding(
                 padding: TextFieldConstants.contentPadding,
-                child: Text(
-                  value.toString(),
-                  style: bodyLarge?.copyWith(
-                    color: primary,
-                  ),
+                child: Row(
+                  children: [
+                    if (value is Clan) ...[
+                      Image.asset(
+                        (value as Clan).logoPath,
+                        width: 30,
+                        height: 30,
+                        color: primary
+                      ),
+                      const SizedBox(width: 10),
+                    ],
+                    Text(
+                      value.toString(),
+                      style: bodyLarge?.copyWith(
+                        color: primary,
+                      ),
+                    ),
+                  ],
                 ),
               );
             },
           ),
           items: items
-              .map((e) => DropdownMenuItem<T>(
-                    value: e,
-                    child: Text(e.toString(), style: bodyLarge,),
+              .map((item) => DropdownMenuItem<T>(
+                    value: item,
+                    child: Row(
+                      children: [
+                        if (item is Clan) ...[
+                          Image.asset(
+                            item.logoPath,
+                            width: 30,
+                            height: 30,
+                            color: Theme.of(context).colorScheme.onBackground,
+                          ),
+                          const SizedBox(width: 10),
+                        ],
+                        Text(
+                          item.toString(),
+                          style: bodyLarge,
+                        ),
+                      ],
+                    ),
                   ))
               .toList(),
         ),
