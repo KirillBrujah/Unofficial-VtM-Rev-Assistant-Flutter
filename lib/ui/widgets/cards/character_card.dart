@@ -110,15 +110,19 @@ class _CharacterImage extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
     return Container(
       decoration: BoxDecoration(
-        color: colorScheme.secondary,
+        color: colorScheme.background,
         borderRadius: const BorderRadius.horizontal(
           left: CardConstants.borderRadius,
         ),
+        border: Border.all(color: colorScheme.surface, width: 2),
       ),
       padding: CardConstants.imagePadding,
       height: CardConstants.height,
       width: CardConstants.height,
-      child: Image.asset(character.clan.value?.logoPath ?? ""),
+      child: Image.asset(
+        character.clan.value?.logoPath ?? "",
+        color: colorScheme.onBackground,
+      ),
     );
   }
 }

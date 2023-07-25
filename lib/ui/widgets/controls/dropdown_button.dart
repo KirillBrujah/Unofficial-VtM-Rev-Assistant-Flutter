@@ -10,7 +10,8 @@ class CustomDropdown<T> extends StatelessWidget {
     this.isRequired = false,
     required this.items,
     this.value,
-    this.onChanged, this.hint,
+    this.onChanged,
+    this.hint,
   }) : super(key: key);
 
   final String? label;
@@ -22,8 +23,11 @@ class CustomDropdown<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var secondary = Theme.of(context).colorScheme.secondary;
-    var primary = Theme.of(context).colorScheme.primary;
+    var theme = Theme.of(context);
+    var secondary = theme.colorScheme.secondary;
+    var primary = theme.colorScheme.primary;
+    var textTheme = theme.textTheme;
+    var bodyLarge = textTheme.bodyLarge;
     return ControlWidget(
       label: label,
       isRequired: isRequired,
@@ -32,13 +36,12 @@ class CustomDropdown<T> extends StatelessWidget {
           onChanged: onChanged,
           value: value,
           // TODO: Change hint
-          hint: hint != null ? Text(
-            hint!,
-            style: Theme.of(context)
-                .textTheme
-                .labelLarge
-                ?.copyWith(color: secondary),
-          ) : null,
+          hint: hint != null
+              ? Text(
+                  hint!,
+                  style: bodyLarge?.copyWith(color: secondary),
+                )
+              : null,
           isExpanded: true,
           buttonStyleData: ButtonStyleData(
             decoration: BoxDecoration(
@@ -75,9 +78,9 @@ class CustomDropdown<T> extends StatelessWidget {
                 padding: TextFieldConstants.contentPadding,
                 child: Text(
                   value.toString(),
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        color: primary,
-                      ),
+                  style: bodyLarge?.copyWith(
+                    color: primary,
+                  ),
                 ),
               );
             },
@@ -85,7 +88,7 @@ class CustomDropdown<T> extends StatelessWidget {
           items: items
               .map((e) => DropdownMenuItem<T>(
                     value: e,
-                    child: Text(e.toString()),
+                    child: Text(e.toString(), style: bodyLarge,),
                   ))
               .toList(),
         ),

@@ -22,9 +22,6 @@ class CreateCharacterController extends _$CreateCharacterController {
 
     state = const AsyncLoading();
 
-    print(attributes);
-
-    return;
 
     state = await AsyncValue.guard(() async {
       return await isar.writeTxn(() async {

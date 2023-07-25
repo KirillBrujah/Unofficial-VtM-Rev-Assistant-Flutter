@@ -32,9 +32,9 @@ class IsarController extends _$IsarController {
     );
 
     // TODO: Remove clear
-    await isar.writeTxn(() async {
-      await isar.clear();
-    });
+    // await isar.writeTxn(() async {
+    //   await isar.clear();
+    // });
 
     if (await isar.attributes.count() == 0) {
       final attributesJson = await rootBundle.getJsonList(Assets.db.attributes);

@@ -22,4 +22,5 @@ const _inputDecorationTheme = InputDecorationTheme(
   border: OutlineInputBorder(
     borderRadius: BorderRadius.all(TextFieldConstants.borderRadius),
   ),
+  contentPadding: TextFieldConstants.contentPadding,
 );

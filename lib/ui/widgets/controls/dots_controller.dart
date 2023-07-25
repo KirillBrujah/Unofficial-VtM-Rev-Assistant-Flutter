@@ -20,6 +20,7 @@ class DotsController extends StatelessWidget {
   Widget build(BuildContext context) {
     return ControlWidget(
       label: label,
+      labelPadding: const EdgeInsets.only(bottom: 4),
       child: Wrap(
         alignment: WrapAlignment.spaceBetween,
         children: [
@@ -51,10 +52,11 @@ class _Dot extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
 
-    final width = (MediaQuery.of(context).size.width - CommonConstants.pagePadding.horizontal);
+    final maxWidth = (MediaQuery.of(context).size.width -
+        CommonConstants.pagePadding.horizontal);
     return SizedBox(
-      width: width / 10 - .5,
-      height: width / 10,
+      width: maxWidth / 10 - 1,
+      height: maxWidth / 10,
       child: Center(
         child: Container(
           width: 20,
@@ -63,7 +65,7 @@ class _Dot extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: colorScheme.secondary.withOpacity(.5)),
             color: isSelected
-                ? colorScheme.primary
+                ? colorScheme.primary.withOpacity(.9)
                 : colorScheme.primaryContainer.withOpacity(.5),
           ),
         ),

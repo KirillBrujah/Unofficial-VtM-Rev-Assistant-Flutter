@@ -19,7 +19,7 @@ class DetailsNavBar extends StatelessWidget {
     final s = S.of(context);
     final colorScheme = Theme.of(context).colorScheme;
     final activeColor = colorScheme.primary;
-    final inactiveColor = colorScheme.primaryContainer;
+    final inactiveColor = colorScheme.secondary;
     return BottomNavyBar(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       showElevation: false,

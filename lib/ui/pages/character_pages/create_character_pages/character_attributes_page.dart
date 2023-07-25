@@ -48,7 +48,7 @@ class _AttributesList extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          _TypeLabel(s.physical),
+          _TypeTitle(s.physical),
           for (AttributeModel attribute
               in list.where((element) => element.isPhysical))
             Consumer(
@@ -66,8 +66,8 @@ class _AttributesList extends StatelessWidget {
                 ),
               ),
             ),
-          const SizedBox(height: 10),
-          _TypeLabel(s.social),
+          const SizedBox(height: 5),
+          _TypeTitle(s.social),
           for (AttributeModel attribute
               in list.where((element) => element.isSocial))
             Consumer(
@@ -85,8 +85,8 @@ class _AttributesList extends StatelessWidget {
                 ),
               ),
             ),
-          const SizedBox(height: 10),
-          _TypeLabel(s.mental),
+          const SizedBox(height: 5),
+          _TypeTitle(s.mental),
           for (AttributeModel attribute
               in list.where((element) => element.isMental))
             Consumer(
@@ -110,8 +110,8 @@ class _AttributesList extends StatelessWidget {
   }
 }
 
-class _TypeLabel extends StatelessWidget {
-  const _TypeLabel(this.label, {Key? key}) : super(key: key);
+class _TypeTitle extends StatelessWidget {
+  const _TypeTitle(this.label, {Key? key}) : super(key: key);
 
   final String label;
 

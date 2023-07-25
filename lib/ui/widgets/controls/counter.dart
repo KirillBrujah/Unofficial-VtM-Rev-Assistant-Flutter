@@ -42,32 +42,39 @@ class Counter extends StatelessWidget {
               InkWellWrapper(
                 onTap: decreaseTap,
                 child: Container(
+                  height: 56,
                   decoration: BoxDecoration(
                     border: Border(right: BorderSide(color: secondary)),
                   ),
-                  padding: const EdgeInsets.all(16.0),
+                  padding: TextFieldConstants.contentPadding
+                      .copyWith(top: 0, bottom: 0),
                   child: Icon(
                     Icons.remove_rounded,
+                    size: 20,
                     color: secondary.withOpacity(decreaseTap != null ? 1 : .3),
                   ),
                 ),
               ),
               Expanded(
                 child: Center(
-                    child: Text(
-                  value.toString(),
-                  style: textTheme.titleLarge,
-                )),
+                  child: Text(
+                    value.toString(),
+                    style: textTheme.titleLarge,
+                  ),
+                ),
               ),
               InkWellWrapper(
                 onTap: increaseTap,
                 child: Container(
+                  height: 56,
                   decoration: BoxDecoration(
                     border: Border(left: BorderSide(color: secondary)),
                   ),
-                  padding: const EdgeInsets.all(16.0),
+                  padding: TextFieldConstants.contentPadding
+                      .copyWith(top: 0, bottom: 0),
                   child: Icon(
                     Icons.add_rounded,
+                    size: 20,
                     color: secondary.withOpacity(increaseTap != null ? 1 : .3),
                   ),
                 ),

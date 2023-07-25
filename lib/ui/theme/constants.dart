@@ -15,11 +15,11 @@ class CardConstants {
   static const height = 90.0;
   static const borderRadius = CommonConstants.radius;
 
-  static const imagePadding = EdgeInsets.all(4);
+  static const imagePadding = EdgeInsets.all(5);
   static const contentPadding =  EdgeInsets.symmetric(vertical: 5, horizontal: 15);
 }
 
 class TextFieldConstants {
   static const borderRadius = CommonConstants.radius;
-  static const contentPadding = EdgeInsets.all(10);
+  static const contentPadding = EdgeInsets.symmetric(vertical: 10, horizontal: 15);
 }
