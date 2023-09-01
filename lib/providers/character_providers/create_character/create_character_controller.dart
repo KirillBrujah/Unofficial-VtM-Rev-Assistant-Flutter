@@ -11,7 +11,7 @@ class CreateCharacterController extends _$CreateCharacterController {
 
   @override
   FutureOr<bool> build() async {
-    isar = await ref.watch(isarControllerProvider.future);
+    isar = await ref.watch(isarInstanceProvider.future);
     return false;
   }
 

@@ -17,7 +17,7 @@ extension _RootX on AssetBundle {
 }
 
 @riverpod
-class IsarController extends _$IsarController {
+class IsarInstance extends _$IsarInstance {
   @override
   FutureOr<Isar> build() async {
     final dir = await getApplicationDocumentsDirectory();

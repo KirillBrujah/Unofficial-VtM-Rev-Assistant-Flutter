@@ -10,7 +10,7 @@ class CharacterAttributesController extends _$CharacterAttributesController {
   @override
   FutureOr<List<AttributeModel>> build() async {
     print("BUILD ATT");
-    final isar = await ref.watch(isarControllerProvider.future);
+    final isar = await ref.watch(isarInstanceProvider.future);
 
     final isarAttributes = await isar.attributes.where().findAll();
 
