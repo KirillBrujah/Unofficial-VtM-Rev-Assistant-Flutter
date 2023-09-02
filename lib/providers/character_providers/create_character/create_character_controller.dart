@@ -7,63 +7,28 @@ part 'create_character_controller.g.dart';
 
 @riverpod
 class CreateCharacterController extends _$CreateCharacterController {
-  late final Isar isar;
+  late final CharacterServiceController dbService;
 
   @override
   FutureOr<bool> build() async {
-    isar = await ref.watch(isarInstanceProvider.future);
+    dbService = IsarCharacterServiceController(
+        await ref.watch(isarInstanceProvider.future));
+
     return false;
   }
 
-  Future<void> createCharacter(CharacterModel characterData, {
+  Future<void> createCharacter(
+    CharacterModel characterData, {
     required List<AttributeModel> attributes,
   }) async {
     await future;
 
     state = const AsyncLoading();
 
-
     state = await AsyncValue.guard(() async {
-      return await isar.writeTxn(() async {
-        final newCharacter = Character()
-          ..name = characterData.name
-          ..generation = characterData.generation
-          ..description = characterData.description
-          ..createdOn = DateTime.now();
+      await dbService.create(characterData);
 
-        await isar.characters.put(newCharacter);
-
-        newCharacter.clan
-          ..value = characterData.clan
-          ..save();
-
-        return true;
-
-        // final strength = await isar.attributes.get(1);
-        //
-        // final characterAttribute = CharacterAttribute()
-        //   ..level = 6
-        //   ..character.value = killian
-        //   ..attribute.value = strength;
-        //
-        // final newAttribute = await (isar.characterAttributes
-        //     .get(await isar.characterAttributes.put(characterAttribute)));
-
-        // killian!.attributes.add(newAttribute!);
-
-        // await newAttribute!.character.save();
-        // await newAttribute.attribute.save();
-        // await killian!.attributes.save();
-
-        // final dexterity = await isar.attributes.get(2);
-
-        // final characterAttribute2 = CharacterAttribute()
-        //   ..level = 6
-        //   ..attribute.value = dexterity;
-
-        // final newAttribute2 = await (isar.characterAttributes
-        //     .get(await isar.characterAttributes.put(characterAttribute2)));
-      });
+      return true;
     });
   }
 }
