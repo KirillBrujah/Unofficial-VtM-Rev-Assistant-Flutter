@@ -48,10 +48,12 @@ class _Body extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.listen(createCharacterControllerProvider, (previous, next) {
-      if (next.value == true) {
-        context.router.pop();
-      }
+    ref.listen(charactersControllerProvider, (previous, next) {
+      next.value?.mapOrNull(
+        added: (value) {
+          context.router.pop();
+        },
+      );
     });
     return Expanded(child: child);
   }

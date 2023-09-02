@@ -42,7 +42,7 @@ class CreateCharacterState extends _$CreateCharacterState {
   void save() {
     if (!state.isReady) return;
 
-    ref.read(createCharacterControllerProvider.notifier).createCharacter(
+    ref.read(charactersControllerProvider.notifier).createCharacter(
           state,
           attributes: attributes,
           // TODO: Skills
