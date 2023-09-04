@@ -1,10 +1,10 @@
 import 'package:isar/isar.dart';
 import 'package:vtm_assistant/models/models.dart';
 
-class IsarCharacterService implements CharacterService {
+class IsarCharactersService implements CharactersService {
   final Isar isar;
 
-  IsarCharacterService(this.isar);
+  IsarCharactersService(this.isar);
 
   @override
   Future<void> create(CharacterModel character) async {
@@ -48,8 +48,4 @@ class IsarCharacterService implements CharacterService {
       //     .get(await isar.characterAttributes.put(characterAttribute2)));
     });
   }
-}
-
-class IsarCharacterServiceController extends CharacterServiceController {
-  IsarCharacterServiceController(Isar isar) : super(IsarCharacterService(isar));
 }

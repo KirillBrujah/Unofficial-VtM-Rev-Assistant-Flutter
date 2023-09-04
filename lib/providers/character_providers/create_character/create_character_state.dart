@@ -14,9 +14,12 @@ class CreateCharacterState extends _$CreateCharacterState {
       characterAttributesControllerProvider
           .select((characterAttributes) => characterAttributes.value ?? []),
       (previous, next) {
-        attributes = next;
+        state = state.copyWith(attributes: next);
       },
     );
+
+    // TODO: Skills listener
+    // TODO: Disciplines listener
 
     return const CharacterModel();
   }
@@ -42,11 +45,6 @@ class CreateCharacterState extends _$CreateCharacterState {
   void save() {
     if (!state.isReady) return;
 
-    ref.read(charactersControllerProvider.notifier).createCharacter(
-          state,
-          attributes: attributes,
-          // TODO: Skills
-          // TODO: Disciplines
-        );
+    ref.read(dbCharactersControllerProvider.notifier).create(state);
   }
 }

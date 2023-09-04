@@ -12,6 +12,7 @@ class CharacterModel with _$CharacterModel {
     @Default(13) int generation,
     String? description,
     Clan? clan,
+    @Default([]) List<AttributeModel> attributes,
   }) = _CharacterData;
 
   bool get isReady => name.isNotEmpty && clan != null;

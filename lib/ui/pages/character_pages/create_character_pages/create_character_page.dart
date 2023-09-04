@@ -48,7 +48,7 @@ class _Body extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.listen(charactersControllerProvider, (previous, next) {
+    ref.listen(dbCharactersControllerProvider, (previous, next) {
       next.value?.mapOrNull(
         added: (value) {
           context.router.pop();
