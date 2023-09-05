@@ -26,7 +26,6 @@ class NetworkCharacterControllerService
 
     state = await AsyncValue.guard(() async {
       await networkService.create(character);
-
       return CharactersControllerState.added(character);
     });
   }

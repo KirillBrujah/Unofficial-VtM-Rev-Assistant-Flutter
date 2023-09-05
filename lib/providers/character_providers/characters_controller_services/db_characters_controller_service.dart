@@ -1,7 +1,5 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:vtm_assistant/models/models.dart';
-import 'package:vtm_assistant/providers/common_providers/isar_providers.dart';
 import 'package:vtm_assistant/providers/providers.dart';
 
 part 'db_characters_controller_service.g.dart';
@@ -11,10 +9,14 @@ class DbCharactersController extends _$DbCharactersController
     implements CharactersControllerService {
   late final CharactersService dbService;
 
+  late final NetworkCharacterControllerService networkService;
+
   @override
   FutureOr<CharactersControllerState> build() async {
     dbService =
         IsarCharactersService(await ref.watch(isarInstanceProvider.future));
+
+    networkService = ref.watch(networkCharacterControllerServiceProvider.notifier);
 
     return const CharactersControllerState.initial();
   }
@@ -28,7 +30,8 @@ class DbCharactersController extends _$DbCharactersController
     state = await AsyncValue.guard(() async {
       await dbService.create(character);
 
-      await ref.read(networkCharacterControllerServiceProvider.notifier).create(character);
+      await networkService.create(character);
+      print("NETWORK ADDED");
 
       return CharactersControllerState.added(character);
     });

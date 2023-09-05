@@ -1,10 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:vtm_assistant/generated/l10n.dart';
 import 'package:vtm_assistant/providers/providers.dart';
-import 'package:vtm_assistant/ui/widgets/appbar_widgets/appbars.dart';
 import 'package:vtm_assistant/ui/widgets/widgets.dart';
 import 'package:vtm_assistant/utils/app_router.dart';
 
@@ -48,7 +45,7 @@ class _Body extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.listen(dbCharactersControllerProvider, (previous, next) {
+    ref.listen(dbCharactersControllerProvider, (_, next) {
       next.value?.mapOrNull(
         added: (value) {
           context.router.pop();
