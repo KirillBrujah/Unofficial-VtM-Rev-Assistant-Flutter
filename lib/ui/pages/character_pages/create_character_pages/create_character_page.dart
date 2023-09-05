@@ -48,6 +48,15 @@ class _Body extends ConsumerWidget {
     ref.listen(dbCharactersControllerProvider, (_, next) {
       next.value?.mapOrNull(
         added: (value) {
+          final snack = SnackBar(
+            content: Container(
+              color: Colors.redAccent,
+              child: Text("ADDED ${value.character.name}"),
+            ),
+          );
+
+          ScaffoldMessenger.of(context).showSnackBar(snack);
+
           context.router.pop();
         },
       );

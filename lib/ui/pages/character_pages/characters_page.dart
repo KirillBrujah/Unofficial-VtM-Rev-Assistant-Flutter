@@ -62,8 +62,7 @@ class _CharactersList extends StatelessWidget {
     Character character,
   ) =>
       () {
-        context.router
-            .push(CharacterDetailsRoute(character: character));
+        context.router.push(CharacterDetailsRoute(character: character));
       };
 
   @override
