@@ -20,10 +20,13 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(name) => "Character ${name} created";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "attributes": MessageLookupByLibrary.simpleMessage("Attributes"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "character_was_created": m0,
         "characters": MessageLookupByLibrary.simpleMessage("Characters"),
         "choose_clan": MessageLookupByLibrary.simpleMessage("Choose Clan"),
         "clan": MessageLookupByLibrary.simpleMessage("Clan"),

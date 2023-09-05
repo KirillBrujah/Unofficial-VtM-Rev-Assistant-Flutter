@@ -21,5 +21,11 @@
 
   "physical": "Physical",
   "social": "Social",
-  "mental": "Mental"
+  "mental": "Mental",
+
+  "@_SNACK_BAR_MESSAGES": {},
+  "character_was_created": "Character {name} created",
+
+
+  "@_ERRORS": {}
 }

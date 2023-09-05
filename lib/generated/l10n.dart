@@ -239,6 +239,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Character {name} created`
+  String character_was_created(Object name) {
+    return Intl.message(
+      'Character $name created',
+      name: 'character_was_created',
+      desc: '',
+      args: [name],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

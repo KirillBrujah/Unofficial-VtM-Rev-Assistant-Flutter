@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:vtm_assistant/generated/l10n.dart';
 import 'package:vtm_assistant/providers/providers.dart';
 import 'package:vtm_assistant/ui/widgets/widgets.dart';
 import 'package:vtm_assistant/utils/app_router.dart';
@@ -45,19 +46,27 @@ class _Body extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen(networkCharacterControllerServiceProvider, (_, next) {
+      next.mapOrNull(
+        error: (error) {
+          context.snackError(error.error.toString());
+        },
+      );
+    });
+
     ref.listen(dbCharactersControllerProvider, (_, next) {
-      next.value?.mapOrNull(
-        added: (value) {
-          final snack = SnackBar(
-            content: Container(
-              color: Colors.redAccent,
-              child: Text("ADDED ${value.character.name}"),
-            ),
+      next.mapOrNull(
+        error: (error) {
+          context.snackError(error.error.toString());
+        },
+        data: (data) {
+          data.value.mapOrNull(
+            added: (value) {
+              context.snackSuccess(
+                  S.of(context).character_was_created(value.character.name));
+              context.router.pop();
+            },
           );
-
-          ScaffoldMessenger.of(context).showSnackBar(snack);
-
-          context.router.pop();
         },
       );
     });

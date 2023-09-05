@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 extension ContextSnackBar on BuildContext {
   ScaffoldFeatureController<SnackBar, SnackBarClosedReason> Function(
-      SnackBar snackBar) get showSnackBar => ScaffoldMessenger.of(this).showSnackBar;
+      SnackBar snackBar) get _showSnackBar => ScaffoldMessenger.of(this).showSnackBar;
 
   void snackSuccess(String message) {
-    showSnackBar(_SnackBars.success(this, message));
+    _showSnackBar(_SnackBars.success(this, message));
   }
 
   void snackInfo(String message) {
-    showSnackBar(_SnackBars.info(this, message));
+    _showSnackBar(_SnackBars.info(this, message));
   }
 
   void snackError(String message) {
-    showSnackBar(_SnackBars.error(this, message));
+    _showSnackBar(_SnackBars.error(this, message));
   }
 }
 
