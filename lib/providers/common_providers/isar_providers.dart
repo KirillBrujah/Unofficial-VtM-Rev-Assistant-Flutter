@@ -42,7 +42,11 @@ class IsarInstance extends _$IsarInstance {
     }
 
     if (await isar.abilitys.count() == 0) {
-      // TODO: Load abilities from Json
+      final abilitiesJson = await rootBundle.getJsonList(Assets.db.abilities);
+
+      await isar.writeTxn(() async {
+        isar.abilitys.importJson(abilitiesJson);
+      });
     }
 
     if (await isar.clans.count() == 0) {

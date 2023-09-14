@@ -14,6 +14,9 @@ import 'package:flutter/services.dart';
 class $AssetsDbGen {
   const $AssetsDbGen();
 
+  /// File path: assets/db/abilities.json
+  String get abilities => 'assets/db/abilities.json';
+
   /// File path: assets/db/attributes.json
   String get attributes => 'assets/db/attributes.json';
 
@@ -24,7 +27,7 @@ class $AssetsDbGen {
   String get vtmAssistant => 'assets/db/vtm_assistant.db';
 
   /// List of all assets
-  List<String> get values => [attributes, clans, vtmAssistant];
+  List<String> get values => [abilities, attributes, clans, vtmAssistant];
 }
 
 class $AssetsImagesGen {
