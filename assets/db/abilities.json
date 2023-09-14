@@ -1,0 +1,153 @@
+[
+  {
+    "id": 1,
+    "name": "Alertness",
+    "type": "talents"
+  },
+  {
+    "id": 2,
+    "name": "Athletics",
+    "type": "talents"
+  },
+  {
+    "id": 3,
+    "name": "Brawl",
+    "type": "talents"
+  },
+  {
+    "id": 4,
+    "name": "Dodge",
+    "type": "talents"
+  },
+  {
+    "id": 5,
+    "name": "Empathy",
+    "type": "talents"
+  },
+  {
+    "id": 6,
+    "name": "Expression",
+    "type": "talents"
+  },
+  {
+    "id": 7,
+    "name": "Intimidation",
+    "type": "talents"
+  },
+  {
+    "id": 8,
+    "name": "Leadership",
+    "type": "talents"
+  },
+  {
+    "id": 9,
+    "name": "Streetwise",
+    "type": "talents"
+  },
+  {
+    "id": 10,
+    "name": "Subterfuge",
+    "type": "talents"
+  },
+
+  {
+    "id": 11,
+    "name": "Animal Ken",
+    "type": "skills"
+  },
+  {
+    "id": 12,
+    "name": "Crafts",
+    "type": "skills"
+  },
+  {
+    "id": 13,
+    "name": "Drive",
+    "type": "skills"
+  },
+  {
+    "id": 14,
+    "name": "Etiquette",
+    "type": "skills"
+  },
+  {
+    "id": 15,
+    "name": "Firearms",
+    "type": "skills"
+  },
+  {
+    "id": 16,
+    "name": "Melee",
+    "type": "skills"
+  },
+  {
+    "id": 17,
+    "name": "Performance",
+    "type": "skills"
+  },
+  {
+    "id": 18,
+    "name": "Security",
+    "type": "skills"
+  },
+  {
+    "id": 19,
+    "name": "Stealth",
+    "type": "skills"
+  },
+  {
+    "id": 20,
+    "name": "Survival",
+    "type": "skills"
+  },
+  {
+    "id": 21,
+    "name": "Academics",
+    "type": "knowledges"
+  },
+  {
+    "id": 22,
+    "name": "Computer",
+    "type": "knowledges"
+  },
+  {
+    "id": 23,
+    "name": "Finance",
+    "type": "knowledges"
+  },
+  {
+    "id": 24,
+    "name": "Investigation",
+    "type": "knowledges"
+  },
+  {
+    "id": 25,
+    "name": "Law",
+    "type": "knowledges"
+  },
+  {
+    "id": 26,
+    "name": "Linguistics",
+    "type": "knowledges"
+  },
+  {
+    "id": 27,
+    "name": "Medicine",
+    "type": "knowledges"
+  },
+  {
+    "id": 28,
+    "name": "Occult",
+    "type": "knowledges"
+  },
+  {
+    "id": 29,
+    "name": "Politics",
+    "type": "knowledges"
+  },
+  {
+    "id": 30,
+    "name": "Science",
+    "type": "knowledges"
+  }
+]
