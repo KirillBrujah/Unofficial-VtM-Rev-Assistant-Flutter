@@ -1,5 +1,7 @@
 import 'package:isar/isar.dart';
-import 'package:vtm_assistant/utils/enums.dart';
+
+import 'ability_models.dart';
+import 'attribute_models.dart';
 
 part 'character_models.g.dart';
 
@@ -16,6 +18,9 @@ class Character {
 
   @Backlink(to: 'character')
   final attributes = IsarLinks<CharacterAttribute>();
+
+  @Backlink(to: 'character')
+  final abilities = IsarLinks<CharacterAbility>();
 }
 
 @collection
@@ -27,25 +32,4 @@ class Clan {
 
   @override
   String toString() => name;
-}
-
-@collection
-class Attribute {
-  Id id = Isar.autoIncrement;
-
-  late final String name;
-
-  @Enumerated(EnumType.name)
-  late final AttributeTypes type;
-}
-
-@collection
-class CharacterAttribute {
-  Id id = Isar.autoIncrement;
-
-  final character = IsarLink<Character>();
-
-  final attribute = IsarLink<Attribute>();
-
-  late final int value;
 }

@@ -3,3 +3,9 @@ enum AttributeTypes {
   social,
   mental,
 }
+
+enum AbilityTypes {
+  talents,
+  skills,
+  knowledges,
+}

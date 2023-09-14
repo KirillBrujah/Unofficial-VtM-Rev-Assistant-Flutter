@@ -24,17 +24,14 @@ class IsarInstance extends _$IsarInstance {
     final isar = await Isar.open(
       [
         AttributeSchema,
+        AbilitySchema,
         ClanSchema,
         CharacterSchema,
         CharacterAttributeSchema,
+        CharacterAbilitySchema,
       ],
       directory: dir.path,
     );
-
-    // TODO: Remove clear
-    // await isar.writeTxn(() async {
-    //   await isar.clear();
-    // });
 
     if (await isar.attributes.count() == 0) {
       final attributesJson = await rootBundle.getJsonList(Assets.db.attributes);
@@ -42,6 +39,10 @@ class IsarInstance extends _$IsarInstance {
       await isar.writeTxn(() async {
         isar.attributes.importJson(attributesJson);
       });
+    }
+
+    if (await isar.abilitys.count() == 0) {
+      // TODO: Load abilities from Json
     }
 
     if (await isar.clans.count() == 0) {

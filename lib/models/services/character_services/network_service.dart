@@ -6,8 +6,7 @@ class NetworkCharactersService implements CharactersService {
   NetworkCharactersService();
 
   @override
-  Future<void> create(CharacterModel character) async {
-    await Future.delayed(const Duration(milliseconds: 1000));
-    throw "TEST NETWORK ERROR";
+  Future<void> create(CharacterModel character) {
+    throw UnimplementedError();
   }
 }
