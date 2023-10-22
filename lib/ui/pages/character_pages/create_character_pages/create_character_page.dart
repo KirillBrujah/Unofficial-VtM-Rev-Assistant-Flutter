@@ -16,7 +16,7 @@ class CreateCharacterPage extends StatelessWidget {
       routes: const [
         CharacterGeneralRoute(),
         CharacterAttributesRoute(),
-        CharacterSkillsRoute(),
+        CharacterAbilitiesRoute(),
         CharacterDisciplinesRoute(),
         CharacterOtherRoute(),
       ],

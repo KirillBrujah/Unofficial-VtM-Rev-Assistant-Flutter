@@ -100,11 +100,11 @@ class S {
     );
   }
 
-  /// `Skills`
-  String get skills {
+  /// `Abilities`
+  String get abilities {
     return Intl.message(
-      'Skills',
-      name: 'skills',
+      'Abilities',
+      name: 'abilities',
       desc: '',
       args: [],
     );
@@ -235,6 +235,36 @@ class S {
     return Intl.message(
       'Mental',
       name: 'mental',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Talents`
+  String get talents {
+    return Intl.message(
+      'Talents',
+      name: 'talents',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Talents`
+  String get skills {
+    return Intl.message(
+      'Talents',
+      name: 'skills',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Knowledges`
+  String get knowledges {
+    return Intl.message(
+      'Knowledges',
+      name: 'knowledges',
       desc: '',
       args: [],
     );

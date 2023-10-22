@@ -16,7 +16,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: CreateCharacterRoute.page, children: [
           AutoRoute(page: CharacterGeneralRoute.page, initial: true),
           AutoRoute(page: CharacterAttributesRoute.page),
-          AutoRoute(page: CharacterSkillsRoute.page),
+          AutoRoute(page: CharacterAbilitiesRoute.page),
           AutoRoute(page: CharacterDisciplinesRoute.page),
           AutoRoute(page: CharacterOtherRoute.page),
         ]),

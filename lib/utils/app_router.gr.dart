@@ -61,12 +61,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const CharacterOtherPage(),
       );
     },
-    CharacterSkillsRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const CharacterSkillsPage(),
-      );
-    },
     CreateCharacterRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -81,6 +75,12 @@ abstract class _$AppRouter extends RootStackRouter {
           key: args.key,
           character: args.character,
         ),
+      );
+    },
+    CharacterAbilitiesRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CharacterAbilitiesPage(),
       );
     },
   };
@@ -209,20 +209,6 @@ class CharacterOtherRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [CharacterSkillsPage]
-class CharacterSkillsRoute extends PageRouteInfo<void> {
-  const CharacterSkillsRoute({List<PageRouteInfo>? children})
-      : super(
-          CharacterSkillsRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'CharacterSkillsRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
 /// [CreateCharacterPage]
 class CreateCharacterRoute extends PageRouteInfo<void> {
   const CreateCharacterRoute({List<PageRouteInfo>? children})
@@ -272,4 +258,18 @@ class EditCharacterRouteArgs {
   String toString() {
     return 'EditCharacterRouteArgs{key: $key, character: $character}';
   }
+}
+
+/// generated route for
+/// [CharacterAbilitiesPage]
+class CharacterAbilitiesRoute extends PageRouteInfo<void> {
+  const CharacterAbilitiesRoute({List<PageRouteInfo>? children})
+      : super(
+          CharacterAbilitiesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CharacterAbilitiesRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }

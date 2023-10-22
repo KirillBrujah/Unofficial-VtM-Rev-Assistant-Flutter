@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "abilities": MessageLookupByLibrary.simpleMessage("Abilities"),
         "attributes": MessageLookupByLibrary.simpleMessage("Attributes"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "character_was_created": m0,
@@ -37,13 +38,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "general": MessageLookupByLibrary.simpleMessage("General"),
         "generation": MessageLookupByLibrary.simpleMessage("Generation"),
+        "knowledges": MessageLookupByLibrary.simpleMessage("Knowledges"),
         "mental": MessageLookupByLibrary.simpleMessage("Mental"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "other": MessageLookupByLibrary.simpleMessage("Other"),
         "physical": MessageLookupByLibrary.simpleMessage("Physical"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
-        "skills": MessageLookupByLibrary.simpleMessage("Skills"),
+        "skills": MessageLookupByLibrary.simpleMessage("Talents"),
         "social": MessageLookupByLibrary.simpleMessage("Social"),
+        "talents": MessageLookupByLibrary.simpleMessage("Talents"),
         "title_placeholder":
             MessageLookupByLibrary.simpleMessage("VtM rev. Assistant")
       };

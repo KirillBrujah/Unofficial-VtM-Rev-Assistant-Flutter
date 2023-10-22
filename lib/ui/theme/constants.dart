@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
 class CommonConstants {
   static const radius = Radius.circular(10);
   static const pagePadding = EdgeInsets.all(15);

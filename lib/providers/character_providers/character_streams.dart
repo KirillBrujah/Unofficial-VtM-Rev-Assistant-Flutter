@@ -18,3 +18,10 @@ Stream<List<Clan>> clans(ClansRef ref) async* {
   yield (await isar.clans.where().findAll());
   yield* isar.clans.where().watch();
 }
+
+@riverpod
+Stream<List<Ability>> abilities(AbilitiesRef ref) async* {
+  final isar = await ref.watch(isarInstanceProvider.future);
+  yield (await isar.abilitys.where().findAll());
+  yield* isar.abilitys.where().watch();
+}

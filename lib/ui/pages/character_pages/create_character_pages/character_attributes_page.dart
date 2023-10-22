@@ -27,9 +27,8 @@ class _Attributes extends ConsumerWidget {
     final attributesController =
         ref.watch(characterAttributesControllerProvider);
     return attributesController.when(
-      // TODO: Rework error and loading widgets
-      loading: () => const CircularProgressIndicator(),
-      error: (error, stackTrace) => Text(error.toString()),
+      loading: () => const Loading(),
+      error: (error, stackTrace) => SimpleErrorMessage(error.toString()),
       data: (data) => _AttributesList(list: data),
     );
   }
@@ -48,7 +47,7 @@ class _AttributesList extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          _TypeTitle(s.physical),
+          TypeLabel(s.physical),
           for (AttributeModel attribute
               in list.where((element) => element.isPhysical))
             Consumer(
@@ -67,7 +66,7 @@ class _AttributesList extends StatelessWidget {
               ),
             ),
           const SizedBox(height: 5),
-          _TypeTitle(s.social),
+          TypeLabel(s.social),
           for (AttributeModel attribute
               in list.where((element) => element.isSocial))
             Consumer(
@@ -86,7 +85,7 @@ class _AttributesList extends StatelessWidget {
               ),
             ),
           const SizedBox(height: 5),
-          _TypeTitle(s.mental),
+          TypeLabel(s.mental),
           for (AttributeModel attribute
               in list.where((element) => element.isMental))
             Consumer(
@@ -106,31 +105,6 @@ class _AttributesList extends StatelessWidget {
             ),
         ],
       ),
-    );
-  }
-}
-
-class _TypeTitle extends StatelessWidget {
-  const _TypeTitle(this.label, {Key? key}) : super(key: key);
-
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const Expanded(child: Divider()),
-
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Text(
-            label,
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-        ),
-        const Expanded(child: Divider()),
-      ],
     );
   }
 }
